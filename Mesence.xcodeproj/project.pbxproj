@@ -30,6 +30,7 @@
 		3C79279F2A76455E00B53CDE /* SwiftProtobufPluginLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 3C79279E2A76455E00B53CDE /* SwiftProtobufPluginLibrary */; };
 		3C7927A12A76455E00B53CDE /* protoc-gen-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 3C7927A02A76455E00B53CDE /* protoc-gen-swift */; };
 		3C7927A62A76495400B53CDE /* message.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7927A52A76495400B53CDE /* message.pb.swift */; };
+		3CB815EE2A78097400A20920 /* MSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB815ED2A78097400A20920 /* MSLog.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		3C7927962A7622B000B53CDE /* MSMessageObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MS\bMessageObserver.swift"; sourceTree = "<group>"; };
 		3C7927A42A76489200B53CDE /* message.proto */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.protobuf; path = message.proto; sourceTree = "<group>"; };
 		3C7927A52A76495400B53CDE /* message.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = message.pb.swift; sourceTree = "<group>"; };
+		3CB815ED2A78097400A20920 /* MSLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSLog.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,9 +112,9 @@
 				34AA21692A775EF400FE45FA /* leftside */,
 				34AA216A2A775EFD00FE45FA /* header */,
 				34AA216B2A775F0300FE45FA /* input */,
-				34AA21722A77ACC000FE45FA /* vm */,
 				34AA21762A77ADCA00FE45FA /* login */,
 				34208F8A2A713A8600569988 /* MSMainViewController.swift */,
+				34AA21732A77ACDC00FE45FA /* MSMainContentVM.swift */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -158,14 +160,6 @@
 			path = input;
 			sourceTree = "<group>";
 		};
-		34AA21722A77ACC000FE45FA /* vm */ = {
-			isa = PBXGroup;
-			children = (
-				34AA21732A77ACDC00FE45FA /* MSMainContentVM.swift */,
-			);
-			path = vm;
-			sourceTree = "<group>";
-		};
 		34AA21762A77ADCA00FE45FA /* login */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,26 +171,11 @@
 		34AA21792A77BCF000FE45FA /* util */ = {
 			isa = PBXGroup;
 			children = (
-				34AA217D2A77BD8500FE45FA /* vc */,
-				34AA217A2A77BCF700FE45FA /* login */,
+				34AA217B2A77BD0800FE45FA /* MSLoginManager.swift */,
+				34AA217E2A77BDAF00FE45FA /* MSViewControllerManager.swift */,
+				3CB815ED2A78097400A20920 /* MSLog.swift */,
 			);
 			path = util;
-			sourceTree = "<group>";
-		};
-		34AA217A2A77BCF700FE45FA /* login */ = {
-			isa = PBXGroup;
-			children = (
-				34AA217B2A77BD0800FE45FA /* MSLoginManager.swift */,
-			);
-			path = login;
-			sourceTree = "<group>";
-		};
-		34AA217D2A77BD8500FE45FA /* vc */ = {
-			isa = PBXGroup;
-			children = (
-				34AA217E2A77BDAF00FE45FA /* MSViewControllerManager.swift */,
-			);
-			path = vc;
 			sourceTree = "<group>";
 		};
 		3C7927952A76229E00B53CDE /* protocol */ = {
@@ -332,6 +311,7 @@
 				34AA21782A77ADE000FE45FA /* MSLogingViewController.swift in Sources */,
 				3C7927A62A76495400B53CDE /* message.pb.swift in Sources */,
 				34208F992A7142C000569988 /* main.swift in Sources */,
+				3CB815EE2A78097400A20920 /* MSLog.swift in Sources */,
 				34AA21742A77ACDC00FE45FA /* MSMainContentVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

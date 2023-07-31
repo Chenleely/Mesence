@@ -27,11 +27,11 @@ class MSMainViewController: NSViewController {
         return view
     }()
     private lazy var contentView: MSMainMsgContentView = {
-        let view = MSMainMsgContentView()
+        let view = MSMainMsgContentView(vm: self.vm)
         return view
     }()
     private lazy var inputView: MSMainInputView = {
-        let view = MSMainInputView()
+        let view = MSMainInputView(vm: self.vm)
         return view
     }()
     private lazy var inputDividerView: NSView = {
@@ -39,11 +39,15 @@ class MSMainViewController: NSViewController {
         view.setBackgroundColor(NSColor(hexString: "#EFEFEF"))
         return view
     }()
+    private lazy var vm: MSMainContentVM = {
+       return MSMainContentVM()
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initUI()
         self.installLayout()
+        MSMessageClient.shared.connect()
     }
     
     override var representedObject: Any? {

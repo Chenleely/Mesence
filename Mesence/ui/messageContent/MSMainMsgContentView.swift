@@ -10,52 +10,8 @@ import SnapKit
 import Cocoa
 
 class MSMainMsgContentView: NSView {
-    private let dataSource = [
-        "你好啊，你好啊，你好啊",
-        "sadthoasd,gasdjgh fasdgasd gasdhgfdsaffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffgasdhgfdsaffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffgasdhgfdsaffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
-        "fasdghasdl",
-        "sadthoasd,gasdjgh fasdgasd gasdhg",
-        "你好啊，你好啊，你好啊",
-        "fasdghasdl",
-        "sadthoasd,gasdjgh fasdgasd gasdhg",
-        "你好啊，你好啊，你好啊",
-        "fasdghasdl",
-        "sadthoasd,gasdjgh fasdgasd gasdhg",
-        "你好啊，你好啊，你好啊",
-        "fasdghasdl",
-        "sadthoasd,gasdjgh fasdgasd gasdhg",
-        "你好啊，你好啊，你好啊",
-        "fasdghasdl",
-        "sadthoasd,gasdjgh fasdgasd gasdhg",
-        "你好啊，你好啊，你好啊",
-        "fasdghasdl",
-        "sadthoasd,gasdjgh fasdgasd gasdhg",
-        "你好啊，你好啊，你好啊",
-        "fasdghasdl",
-        "sadthoasd,gasdjgh fasdgasd gasdhg",
-        "你好啊，你好啊，你好啊",
-        "fasdghasdl",
-        "sadthoasd,gasdjgh fasdgasd gasdhg",
-        "你好啊，你好啊，你好啊",
-        "fasdghasdl",
-        "sadthoasd,gasdjgh fasdgasd gasdhg",
-        "你好啊，你好啊，你好啊",
-        "fasdghasdl",
-        "sadthoasd,gasdjgh fasdgasd gasdhg",
-        "你好啊，你好啊，你好啊",
-        "fasdghasdl",
-        "sadthoasd,gasdjgh fasdgasd gasdhg",
-        "你好啊，你好啊，你好啊",
-        "fasdghasdl",
-        "sadthoasd,gasdjgh fasdgasd gasdhg",
-        "你好啊，你好啊，你好啊",
-        "fasdghasdl",
-        "sadthoasd,gasdjgh fasdgasd gasdhg",
-        "你好啊，你好啊，你好啊",
-        "fasdghasdl",
-    ]
-    
     private static let tableColumnID = NSUserInterfaceItemIdentifier(rawValue: "contentTableViewCellID")
+    private var vm: MSMainContentVM? = nil
     private lazy var contentScrollView: NSScrollView = {
         let scrollView = NSScrollView()
         scrollView.autoresizingMask = [.height, .width]
@@ -88,8 +44,22 @@ class MSMainMsgContentView: NSView {
         }
     }
     
+    convenience init(vm: MSMainContentVM) {
+        self.init(frame: CGRectZero)
+        self.vm = vm
+        self.vm?.getMsgList()
+    }
+    
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
+        NotificationCenter.default.addObserver(self, selector: #selector(onMessageListChanged), name: MSMainContentVM.MSMessageListChanceNofiName, object: nil)
+    }
+    
+    @objc func onMessageListChanged() {
+        contentTableView.reloadData()
+        if let count = self.vm?.msgList.count {
+            contentTableView.scrollRowToVisible(count - 1)
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -109,7 +79,7 @@ class MSMainMsgContentView: NSView {
 
 extension MSMainMsgContentView: NSTableViewDelegate, NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return dataSource.count
+        return vm?.msgList.count ?? 0
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
@@ -117,14 +87,17 @@ extension MSMainMsgContentView: NSTableViewDelegate, NSTableViewDataSource {
         if cell == nil {
             cell = MSMainMsgContentCellView()
         }
-        if let contentCell = cell as? MSMainMsgContentCellView {
-            contentCell.config(dataSource[row], msgType: row % 2 != 0 ? .mine : .other )
+        if let contentCell = cell as? MSMainMsgContentCellView, let msg = vm?.msgList[row]{
+            contentCell.config(msg: msg, msgType: msg.data.from == "user" ? .mine : .other )
         }
         return cell
     }
     
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
-        let size =  MSMainMsgContentCellView.calcuteCellSize(dataSource[row], withMaxWidth: self.frame.width - 20)
-        return size.height
+        if let msg = vm?.msgList[row] {
+            let size =  MSMainMsgContentCellView.calcuteCellSize(msg.data.content, withMaxWidth: self.frame.width - 20)
+            return size.height
+        }
+        return 0
     }
 }

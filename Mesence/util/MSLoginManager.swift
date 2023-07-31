@@ -26,7 +26,7 @@ class MSLoginManager {
     }
     
     public func login(userID: String, password: String, completion: RequestCompletionClosure) {
-
+        completion(true)
     }
     
     public func register(userID: String, password: String, completion: RequestCompletionClosure) {

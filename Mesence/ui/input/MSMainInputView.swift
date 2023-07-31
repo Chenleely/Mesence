@@ -14,10 +14,16 @@ class MSMainInputView: NSView  {
         return NSTextView.scrollableTextView()
     }()
     private var textView: NSTextView?
+    private var vm: MSMainContentVM? = nil
     
     // MARK: - Public Methods
     required init?(coder: NSCoder) {
         fatalError("Can't do this")
+    }
+    
+    convenience init(vm: MSMainContentVM) {
+        self.init(frame: CGRectZero)
+        self.vm = vm
     }
     
     override init(frame frameRect: NSRect) {
@@ -46,8 +52,8 @@ class MSMainInputView: NSView  {
 
 extension MSMainInputView: NSTextViewDelegate {
     func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
-        if commandSelector == #selector(NSResponder.insertNewline(_:)) {
-            print(textView.string)
+        if commandSelector == #selector(NSResponder.insertNewline(_:)) && !textView.string.isEmpty {
+            vm?.sendMessage(textView.string)
             textView.string = ""
             return true
         }

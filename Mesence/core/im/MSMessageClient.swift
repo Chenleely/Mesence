@@ -8,7 +8,7 @@
 import Foundation
 import Starscream
  
-typealias WriteDataCompletion = () -> ()
+typealias WriteDataCompletion = (Msg, Bool) -> ()
 typealias NotifyObserverExcution = (MSMessageObserver) -> ()
 
 // MARK: - ------- MSMessageClient --------
@@ -26,6 +26,7 @@ class MSMessageClient {
     private var timer: Timer?
     private var reconnectCount = 0
     private var isConnected: Bool = false
+    private let logTag = "MSMessageClient"
     private var qosMessageSet: Set<Msg> = Set<Msg>()
     private let mutex: DispatchSemaphore = DispatchSemaphore(value: 1)
     private var observersMap: [String : MSMessageObserver?] = [String : MSMessageObserver?]()
@@ -38,13 +39,14 @@ class MSMessageClient {
     // MARK: - Private Method
     private init() {
         self.connect()
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(tryReconnect), userInfo: nil, repeats: true)
     }
     
     private func reSendQosMessages() {
         if qosMessageSet.isEmpty || !isConnected { return }
         for msg in qosMessageSet {
-            self.sendMessage(message: msg) {
-                print("try to reSendMessages")
+            self.sendMessage(message: msg) { [self] msg, success in
+                MSLog.logI(tag: logTag, log: "try to reSendMessages")
             }
         }
     }
@@ -62,17 +64,20 @@ class MSMessageClient {
     }
     
     @objc func tryReconnect() {
+        MSLog.logI(tag: logTag, log: "tryReconnect")
         if isConnected {
             timer?.invalidate()
             timer = nil
             return
         }
+        reconnectCount += 1
         if reconnectCount > MSMessageClient.maxReconnectCount {
             timer?.invalidate()
             timer = nil
             broadCast { observer in
                 observer.reConnectCountIsOnTop()
             }
+            MSLog.logI(tag: logTag, log: "tryReconnect is out of limitation")
             return
         }
         self.connect()
@@ -80,7 +85,7 @@ class MSMessageClient {
     
     // MARK: Public Method
     public func sendMessage(fromUser from: String, toUser to: String, dataContent content: String, withCompletion completion: @escaping WriteDataCompletion) {
-        let dataModel = DataMessage(toUser: from, fromUser: to, dataContent: content, sendMsgTime: self.generateCurrentTimestamp())
+        let dataModel = DataMessage(toUser: to, fromUser: from, dataContent: content, sendMsgTime: self.generateCurrentTimestamp())
         let msg = Msg(type: .word, data: dataModel)
         self.sendMessage(message: msg, withCompletion: completion)
     }
@@ -88,6 +93,7 @@ class MSMessageClient {
     public func sendMessage(message msg: Msg, withCompletion completion: @escaping WriteDataCompletion) {
         if !isConnected {
             qosMessageSet.insert(msg)
+            completion(msg, false)
             return
         }
         
@@ -97,7 +103,9 @@ class MSMessageClient {
             
         do {
             let data = try msg.serializedData()
-            websocket.write(data: data, completion: completion)
+            websocket.write(data: data) {
+                completion(msg, true)
+            }
         } catch(let error) {
             print(error)
         }
@@ -141,10 +149,10 @@ extension MSMessageClient: WebSocketDelegate {
     func didReceive(event: WebSocketEvent, client: WebSocket) {
         switch event {
         case .connected(let headers):
-            print("websocket is connected: \(headers)")
+            MSLog.logI(tag: logTag, log: "websocket is connected: \(headers)")
             handleConnectMessage()
         case .disconnected(let reason, let code):
-            print("websocket is disconnected: \(reason) with code: \(code)")
+            MSLog.logI(tag: logTag, log: "websocket is disconnected:  \(reason) with code: \(code)")
             handleDisonnectMessage()
         case .text(let string):
             handleStringMessage(string)
@@ -175,40 +183,40 @@ extension MSMessageClient: WebSocketDelegate {
     }
     
     private func handleByteMessage(_ data: Data) {
-        print("Received data: \(data.count)")
+        MSLog.logI(tag: logTag, log: "Received data: \(data.count)")
         do {
             let pbMSG = try Msg(serializedData: data)
             switch pbMSG.type {
             case .word:
+                MSLog.logI(tag: logTag, log: "receive word")
                 broadCast { observer in
                     observer.receiveMessage(pbMSG)
-                    print("receive word")
                 }
             case .online:
+                MSLog.logI(tag: logTag, log: "receive online")
                 broadCast { observer in
                     observer.receiveFriendsInline(pbMSG)
-                    print("receive online")
                 }
             case .offline:
+                MSLog.logI(tag: logTag, log: "receive offline")
                 broadCast { observer in
                     observer.receiveFriendsOffline(pbMSG)
-                    print("receive offline")
                 }
             case .friendRequest:
+                MSLog.logI(tag: logTag, log: "receive friendRequest")
                 broadCast { observer in
                     observer.receiveFriensRequest(pbMSG)
-                    print("receive friendRequest")
                 }
             case .heartPackage:
-                print("receive heartPackage")
+                MSLog.logI(tag: logTag, log: "receive heartPackage")
             case.answer:
-                print("receive answer")
+                MSLog.logI(tag: logTag, log: "receive answer")
             case .offer:
-                print("receive offer")
+                MSLog.logI(tag: logTag, log: "receive offer")
             case .candidate:
-                print("receive candidate")
+                MSLog.logI(tag: logTag, log: "receive candidate")
             case .UNRECOGNIZED(_):
-                print("unrecognized message")
+                MSLog.logE(tag: logTag, log: "unrecognized message")
             }
         } catch(let error) {
             print(error)
@@ -216,7 +224,7 @@ extension MSMessageClient: WebSocketDelegate {
     }
     
     private func handleStringMessage(_ string: String) {
-        print("Received text: \(string)")
+        MSLog.logI(tag: logTag, log: "Received text: \(string)")
     }
     
     private func handleConnectMessage() {
@@ -224,6 +232,8 @@ extension MSMessageClient: WebSocketDelegate {
         broadCast { observer in
             observer.onConnected()
         }
+        timer?.invalidate()
+        timer = nil
         self.reSendQosMessages()
     }
     
