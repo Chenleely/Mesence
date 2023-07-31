@@ -32,6 +32,7 @@ class MSMainInputView: NSView  {
         textView?.backgroundColor = .white
         textView?.textColor = .black
         textView?.font = NSFont.systemFont(ofSize: 14)
+        textView?.delegate = self
         textView?.insertionPointColor = .lightGray
         self.addSubview(scrollView)
     }
@@ -44,5 +45,12 @@ class MSMainInputView: NSView  {
 }
 
 extension MSMainInputView: NSTextViewDelegate {
-    
+    func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
+        if commandSelector == #selector(NSResponder.insertNewline(_:)) {
+            print(textView.string)
+            textView.string = ""
+            return true
+        }
+        return false
+    }
 }

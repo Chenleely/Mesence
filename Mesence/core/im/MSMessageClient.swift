@@ -40,17 +40,8 @@ class MSMessageClient {
         self.connect()
     }
     
-    private func connect() {
-        websocket.connect()
-    }
-    
-    private func disConnect() {
-        websocket.connect()
-    }
-    
     private func reSendQosMessages() {
-        if qosMessageSet.isEmpty { return }
-        if !isConnected { return }
+        if qosMessageSet.isEmpty || !isConnected { return }
         for msg in qosMessageSet {
             self.sendMessage(message: msg) {
                 print("try to reSendMessages")
@@ -128,6 +119,18 @@ class MSMessageClient {
     
     public func reconnect() {
         if isConnected { return }
+    }
+    
+    public func configSocket(_ config: MSMessageClientConfig) {
+        
+    }
+    
+    public func connect() {
+        websocket.connect()
+    }
+    
+    public func disConnect() {
+        websocket.disconnect()
     }
 }
 

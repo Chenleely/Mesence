@@ -36,5 +36,101 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "61B22E18-965A-4005-99BB-1060A874F9AD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../Library/Developer/Xcode/DerivedData/Mesence-flntejqlkfywxeajcjltobfffiwc/SourcePackages/checkouts/Starscream/Sources/Engine/WSEngine.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "start(request:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FADA9A50-69D1-4AF0-AD9F-5D3753E6DE44"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mesence/extension/StringExtension.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "maxCountEachline(font:maxWidth:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "48C0F5A3-83C4-4B38-9E90-E6AF9A0CAA25"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mesence/extension/NSColorExtension.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "init(hexString:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "47014C27-F1C9-4E69-8F1B-F2A33F5C5A26"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mesence/extension/StringExtension.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "sizeForText(font:width:lineSpacing:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "47014C27-F1C9-4E69-8F1B-F2A33F5C5A26 - f0d088e626a4806e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Swift.String.sizeForText(font: __C.NSFont, width: CoreGraphics.CGFloat, lineSpacing: CoreGraphics.CGFloat) -&gt; __C.CGSize"
+                  moduleName = "Mesence"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lzh/Desktop/Mesence/Mesence/extension/StringExtension.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "880">
+               </Location>
+               <Location
+                  uuid = "47014C27-F1C9-4E69-8F1B-F2A33F5C5A26 - f0d088e626a4806e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Swift.String.sizeForText(font: __C.NSFont, width: CoreGraphics.CGFloat, lineSpacing: CoreGraphics.CGFloat) -&gt; __C.CGSize"
+                  moduleName = "Mesence"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lzh/Desktop/Mesence/Mesence/extension/StringExtension.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "756">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

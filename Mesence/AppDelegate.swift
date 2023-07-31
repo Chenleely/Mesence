@@ -16,13 +16,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                                 backing: .buffered,
                                 defer: false)
         mainWindow?.minSize = NSMakeSize(500, 300)
-        mainWindow?.contentViewController = ViewController()
+        mainWindow?.contentViewController = MSMainViewController()
         mainWindow?.titleVisibility = .hidden
         mainWindow?.titlebarAppearsTransparent = true
         mainWindow?.isMovableByWindowBackground = true
         mainWindow?.backgroundColor = .white
         mainWindow?.center()
         mainWindow?.makeKeyAndOrderFront(nil)
+        MSMessageClient.shared.connect()
+        
+        
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

@@ -7,34 +7,34 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
-    private let headerView: NSView = {
+class MSMainViewController: NSViewController {
+    private lazy var headerView: NSView = {
         let view = NSView()
         return view
     }()
-    private let headerDividerView: NSView = {
-        let view = NSView()
-        view.setBackgroundColor(NSColor.lightGray)
-        return view
-    }()
-    private let leftsideView: NSView = {
-        let view = NSView()
-        return view
-    }()
-    private let leftsideDividerView: NSView = {
+    private lazy var headerDividerView: NSView = {
         let view = NSView()
         view.setBackgroundColor(NSColor.lightGray)
         return view
     }()
-    private let contentView: NSView = {
+    private lazy var leftsideView: NSView = {
         let view = NSView()
         return view
     }()
-    private let inputView: MSMainInputView = {
+    private lazy var leftsideDividerView: NSView = {
+        let view = NSView()
+        view.setBackgroundColor(NSColor.lightGray)
+        return view
+    }()
+    private lazy var contentView: MSMainMsgContentView = {
+        let view = MSMainMsgContentView()
+        return view
+    }()
+    private lazy var inputView: MSMainInputView = {
         let view = MSMainInputView()
         return view
     }()
-    private let inputDividerView: NSView = {
+    private lazy var inputDividerView: NSView = {
         let view = NSView()
         view.setBackgroundColor(NSColor.lightGray)
         return view
@@ -44,6 +44,7 @@ class ViewController: NSViewController {
         super.viewDidLoad()
         self.initUI()
         self.installLayout()
+//        self.contentView.reloadData()
     }
     
     override var representedObject: Any? {
@@ -87,7 +88,7 @@ class ViewController: NSViewController {
         let headerDividerRect = NSRect(origin: CGPoint(x: inputViewRect.origin.x, y: headerViewRect.origin.y - 1),
                                        size: CGSize(width: headerViewRect.width, height: 1))
         
-        let contentViewRect = NSRect(origin: CGPoint(x: leftViewRect.width, y:inputViewRect.origin.y + inputViewRect.height + inputViewRect.height),
+        let contentViewRect = NSRect(origin: CGPoint(x: leftViewRect.width, y:inputViewRect.origin.y + inputViewRect.height + inputDividerRect.height),
                                      size: CGSize(width: inputViewRect.width, height: self.view.bounds.height - inputViewRect.height - headerViewRect.height - inputDividerRect.height - headerDividerRect.height))
     
         self.leftsideView.frame = leftViewRect

@@ -8,14 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		34208F892A713A8600569988 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34208F882A713A8600569988 /* AppDelegate.swift */; };
-		34208F8B2A713A8600569988 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34208F8A2A713A8600569988 /* ViewController.swift */; };
+		34208F8B2A713A8600569988 /* MSMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34208F8A2A713A8600569988 /* MSMainViewController.swift */; };
 		34208F8D2A713A8800569988 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34208F8C2A713A8800569988 /* Assets.xcassets */; };
 		34208F992A7142C000569988 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34208F982A7142C000569988 /* main.swift */; };
 		34208F9C2A720BE500569988 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 34208F9B2A720BE500569988 /* SnapKit */; };
 		34208FA12A72548700569988 /* NSViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34208FA02A72548700569988 /* NSViewExtension.swift */; };
 		34208FA42A725DFD00569988 /* MSMainInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34208FA32A725DFD00569988 /* MSMainInputView.swift */; };
-		34208FA62A725E2800569988 /* MSMainMsgListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34208FA52A725E2800569988 /* MSMainMsgListView.swift */; };
 		34208FA82A725E3500569988 /* MSMainMsgContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34208FA72A725E3500569988 /* MSMainMsgContentView.swift */; };
+		34AA21672A775AA800FE45FA /* MSMessageClientConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AA21662A775AA800FE45FA /* MSMessageClientConfig.swift */; };
+		34AA216D2A77654800FE45FA /* MSMainMsgContentCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AA216C2A77654800FE45FA /* MSMainMsgContentCellView.swift */; };
+		34AA216F2A778AFF00FE45FA /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AA216E2A778AFF00FE45FA /* StringExtension.swift */; };
+		34AA21712A779E5A00FE45FA /* NSColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AA21702A779E5A00FE45FA /* NSColorExtension.swift */; };
+		34AA21742A77ACDC00FE45FA /* MSMainContentVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AA21732A77ACDC00FE45FA /* MSMainContentVM.swift */; };
+		34AA21782A77ADE000FE45FA /* MSLogingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AA21772A77ADE000FE45FA /* MSLogingViewController.swift */; };
 		3C7927922A7614AA00B53CDE /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = 3C7927912A7614AA00B53CDE /* Starscream */; };
 		3C7927942A761F0200B53CDE /* MSMessageClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7927932A761F0200B53CDE /* MSMessageClient.swift */; };
 		3C7927972A7622B000B53CDE /* MSMessageObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7927962A7622B000B53CDE /* MSMessageObserver.swift */; };
@@ -28,14 +33,19 @@
 /* Begin PBXFileReference section */
 		34208F852A713A8600569988 /* Mesence.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mesence.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34208F882A713A8600569988 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		34208F8A2A713A8600569988 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		34208F8A2A713A8600569988 /* MSMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSMainViewController.swift; sourceTree = "<group>"; };
 		34208F8C2A713A8800569988 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		34208F912A713A8800569988 /* Mesence.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mesence.entitlements; sourceTree = "<group>"; };
 		34208F982A7142C000569988 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		34208FA02A72548700569988 /* NSViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSViewExtension.swift; sourceTree = "<group>"; };
 		34208FA32A725DFD00569988 /* MSMainInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSMainInputView.swift; sourceTree = "<group>"; };
-		34208FA52A725E2800569988 /* MSMainMsgListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSMainMsgListView.swift; sourceTree = "<group>"; };
 		34208FA72A725E3500569988 /* MSMainMsgContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSMainMsgContentView.swift; sourceTree = "<group>"; };
+		34AA21662A775AA800FE45FA /* MSMessageClientConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSMessageClientConfig.swift; sourceTree = "<group>"; };
+		34AA216C2A77654800FE45FA /* MSMainMsgContentCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSMainMsgContentCellView.swift; sourceTree = "<group>"; };
+		34AA216E2A778AFF00FE45FA /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		34AA21702A779E5A00FE45FA /* NSColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSColorExtension.swift; sourceTree = "<group>"; };
+		34AA21732A77ACDC00FE45FA /* MSMainContentVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSMainContentVM.swift; sourceTree = "<group>"; };
+		34AA21772A77ADE000FE45FA /* MSLogingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSLogingViewController.swift; sourceTree = "<group>"; };
 		3C7927932A761F0200B53CDE /* MSMessageClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSMessageClient.swift; sourceTree = "<group>"; };
 		3C7927962A7622B000B53CDE /* MSMessageObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MS\bMessageObserver.swift"; sourceTree = "<group>"; };
 		3C7927A42A76489200B53CDE /* message.proto */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.protobuf; path = message.proto; sourceTree = "<group>"; };
@@ -82,7 +92,7 @@
 				34208F9D2A7253BE00569988 /* ui */,
 				34208F882A713A8600569988 /* AppDelegate.swift */,
 				34208F982A7142C000569988 /* main.swift */,
-				34208F8A2A713A8600569988 /* ViewController.swift */,
+				34208F8A2A713A8600569988 /* MSMainViewController.swift */,
 				34208F8C2A713A8800569988 /* Assets.xcassets */,
 				34208F912A713A8800569988 /* Mesence.entitlements */,
 			);
@@ -92,8 +102,12 @@
 		34208F9D2A7253BE00569988 /* ui */ = {
 			isa = PBXGroup;
 			children = (
-				34208FAA2A728A8F00569988 /* view */,
-				34208FA92A725E5500569988 /* mainPage */,
+				34AA21762A77ADCA00FE45FA /* login */,
+				34AA21722A77ACC000FE45FA /* vm */,
+				34AA216B2A775F0300FE45FA /* input */,
+				34AA216A2A775EFD00FE45FA /* header */,
+				34AA21692A775EF400FE45FA /* leftside */,
+				34AA21682A775EE900FE45FA /* messageContent */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -102,25 +116,57 @@
 			isa = PBXGroup;
 			children = (
 				34208FA02A72548700569988 /* NSViewExtension.swift */,
+				34AA216E2A778AFF00FE45FA /* StringExtension.swift */,
+				34AA21702A779E5A00FE45FA /* NSColorExtension.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
 		};
-		34208FA92A725E5500569988 /* mainPage */ = {
+		34AA21682A775EE900FE45FA /* messageContent */ = {
+			isa = PBXGroup;
+			children = (
+				34208FA72A725E3500569988 /* MSMainMsgContentView.swift */,
+				34AA216C2A77654800FE45FA /* MSMainMsgContentCellView.swift */,
+			);
+			path = messageContent;
+			sourceTree = "<group>";
+		};
+		34AA21692A775EF400FE45FA /* leftside */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = leftside;
+			sourceTree = "<group>";
+		};
+		34AA216A2A775EFD00FE45FA /* header */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = header;
+			sourceTree = "<group>";
+		};
+		34AA216B2A775F0300FE45FA /* input */ = {
 			isa = PBXGroup;
 			children = (
 				34208FA32A725DFD00569988 /* MSMainInputView.swift */,
-				34208FA52A725E2800569988 /* MSMainMsgListView.swift */,
-				34208FA72A725E3500569988 /* MSMainMsgContentView.swift */,
 			);
-			path = mainPage;
+			path = input;
 			sourceTree = "<group>";
 		};
-		34208FAA2A728A8F00569988 /* view */ = {
+		34AA21722A77ACC000FE45FA /* vm */ = {
 			isa = PBXGroup;
 			children = (
+				34AA21732A77ACDC00FE45FA /* MSMainContentVM.swift */,
 			);
-			path = view;
+			path = vm;
+			sourceTree = "<group>";
+		};
+		34AA21762A77ADCA00FE45FA /* login */ = {
+			isa = PBXGroup;
+			children = (
+				34AA21772A77ADE000FE45FA /* MSLogingViewController.swift */,
+			);
+			path = login;
 			sourceTree = "<group>";
 		};
 		3C7927952A76229E00B53CDE /* protocol */ = {
@@ -154,6 +200,7 @@
 				3C7927982A76267B00B53CDE /* pb */,
 				3C7927952A76229E00B53CDE /* protocol */,
 				3C7927932A761F0200B53CDE /* MSMessageClient.swift */,
+				34AA21662A775AA800FE45FA /* MSMessageClientConfig.swift */,
 			);
 			path = im;
 			sourceTree = "<group>";
@@ -239,16 +286,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34AA21712A779E5A00FE45FA /* NSColorExtension.swift in Sources */,
+				34AA216D2A77654800FE45FA /* MSMainMsgContentCellView.swift in Sources */,
 				34208FA42A725DFD00569988 /* MSMainInputView.swift in Sources */,
 				3C7927972A7622B000B53CDE /* MSMessageObserver.swift in Sources */,
-				34208FA62A725E2800569988 /* MSMainMsgListView.swift in Sources */,
 				34208FA82A725E3500569988 /* MSMainMsgContentView.swift in Sources */,
-				34208F8B2A713A8600569988 /* ViewController.swift in Sources */,
+				34208F8B2A713A8600569988 /* MSMainViewController.swift in Sources */,
 				3C7927942A761F0200B53CDE /* MSMessageClient.swift in Sources */,
 				34208FA12A72548700569988 /* NSViewExtension.swift in Sources */,
 				34208F892A713A8600569988 /* AppDelegate.swift in Sources */,
+				34AA216F2A778AFF00FE45FA /* StringExtension.swift in Sources */,
+				34AA21672A775AA800FE45FA /* MSMessageClientConfig.swift in Sources */,
+				34AA21782A77ADE000FE45FA /* MSLogingViewController.swift in Sources */,
 				3C7927A62A76495400B53CDE /* message.pb.swift in Sources */,
 				34208F992A7142C000569988 /* main.swift in Sources */,
+				34AA21742A77ACDC00FE45FA /* MSMainContentVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
