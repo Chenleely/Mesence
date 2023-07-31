@@ -20,12 +20,13 @@ class MSMessageClient {
     }()
     
     // MARK: - Private Property
+    private static let socketURL = "ws://louis296.top:9010/ws"
+    private static let maxReconnectCount = 10
+    
     private var timer: Timer?
     private var reconnectCount = 0
     private var isConnected: Bool = false
-    private let qosMessageSet: Set<Msg> = Set<Msg>()
-    private static let socketURL = "ws://louis296.top:9010/ws"
-    private static let maxReconnectCount = 10 // If reconnectCount is out of limitation, the connection is nolonger exist
+    private var qosMessageSet: Set<Msg> = Set<Msg>()
     private let mutex: DispatchSemaphore = DispatchSemaphore(value: 1)
     private var observersMap: [String : MSMessageObserver?] = [String : MSMessageObserver?]()
     private let websocket: WebSocket = {
@@ -37,7 +38,6 @@ class MSMessageClient {
     // MARK: - Private Method
     private init() {
         self.connect()
-        timer = Timer(timeInterval: 1, target: self, selector: #selector(tryReconnect), userInfo: nil, repeats: true)
     }
     
     private func connect() {
@@ -48,8 +48,20 @@ class MSMessageClient {
         websocket.connect()
     }
     
+    private func reSendQosMessages() {
+        if qosMessageSet.isEmpty { return }
+        if !isConnected { return }
+        for msg in qosMessageSet {
+            self.sendMessage(message: msg) {
+                print("try to reSendMessages")
+            }
+        }
+    }
+    
     deinit {
         websocket.forceDisconnect()
+        timer?.invalidate()
+        timer = nil
     }
     
     @inline(__always) private func generateCurrentTimestamp() -> String {
@@ -59,14 +71,20 @@ class MSMessageClient {
     }
     
     @objc func tryReconnect() {
+        if isConnected {
+            timer?.invalidate()
+            timer = nil
+            return
+        }
         if reconnectCount > MSMessageClient.maxReconnectCount {
             timer?.invalidate()
             timer = nil
             broadCast { observer in
                 observer.reConnectCountIsOnTop()
             }
+            return
         }
-        
+        self.connect()
     }
     
     // MARK: Public Method
@@ -77,8 +95,15 @@ class MSMessageClient {
     }
     
     public func sendMessage(message msg: Msg, withCompletion completion: @escaping WriteDataCompletion) {
-        if !isConnected {}
-//            qosQueue.addMessage(msg)
+        if !isConnected {
+            qosMessageSet.insert(msg)
+            return
+        }
+        
+        if qosMessageSet.contains(msg) {
+            qosMessageSet.remove(msg)
+        }
+            
         do {
             let data = try msg.serializedData()
             websocket.write(data: data, completion: completion)
@@ -196,6 +221,7 @@ extension MSMessageClient: WebSocketDelegate {
         broadCast { observer in
             observer.onConnected()
         }
+        self.reSendQosMessages()
     }
     
     private func handleDisonnectMessage() {
@@ -203,6 +229,8 @@ extension MSMessageClient: WebSocketDelegate {
         broadCast { observer in
             observer.onDisConnected()
         }
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(tryReconnect), userInfo: nil, repeats: true)
+        timer?.fire()
     }
     
     private func handleCancelMessage() {
