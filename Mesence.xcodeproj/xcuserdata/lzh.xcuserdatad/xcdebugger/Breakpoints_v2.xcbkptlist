@@ -132,5 +132,53 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D68C0A1A-27AC-4D91-B836-8E2C0C8C0063"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mesence/ui/login/MSLogingViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "loadView()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D68C0A1A-27AC-4D91-B836-8E2C0C8C0063 - b0fcaad0cc9b7a18"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Mesence.MSLogingViewController.loadView() -&gt; ()"
+                  moduleName = "Mesence"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lzh/Desktop/Mesence/Mesence/ui/login/MSLogingViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "D68C0A1A-27AC-4D91-B836-8E2C0C8C0063 - b0fcaad0cc9b7a18"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Mesence.MSLogingViewController.loadView() -&gt; ()"
+                  moduleName = "Mesence"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lzh/Desktop/Mesence/Mesence/ui/login/MSLogingViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "52">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

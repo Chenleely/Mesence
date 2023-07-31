@@ -14,7 +14,7 @@ class MSMainViewController: NSViewController {
     }()
     private lazy var headerDividerView: NSView = {
         let view = NSView()
-        view.setBackgroundColor(NSColor.lightGray)
+        view.setBackgroundColor(NSColor(hexString: "#EFEFEF"))
         return view
     }()
     private lazy var leftsideView: NSView = {
@@ -23,7 +23,7 @@ class MSMainViewController: NSViewController {
     }()
     private lazy var leftsideDividerView: NSView = {
         let view = NSView()
-        view.setBackgroundColor(NSColor.lightGray)
+        view.setBackgroundColor(NSColor(hexString: "#EFEFEF"))
         return view
     }()
     private lazy var contentView: MSMainMsgContentView = {
@@ -36,7 +36,7 @@ class MSMainViewController: NSViewController {
     }()
     private lazy var inputDividerView: NSView = {
         let view = NSView()
-        view.setBackgroundColor(NSColor.lightGray)
+        view.setBackgroundColor(NSColor(hexString: "#EFEFEF"))
         return view
     }()
     
@@ -44,7 +44,6 @@ class MSMainViewController: NSViewController {
         super.viewDidLoad()
         self.initUI()
         self.installLayout()
-//        self.contentView.reloadData()
     }
     
     override var representedObject: Any? {
@@ -74,19 +73,19 @@ class MSMainViewController: NSViewController {
     private func installLayout() {
         let leftViewRect = NSRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: 200, height: self.view.bounds.height))
         
-        let leftDividerRect = NSRect(origin: CGPoint(x: leftViewRect.width - 1, y: 0), size: CGSize(width: 1, height: leftViewRect.height))
+        let leftDividerRect = NSRect(origin: CGPoint(x: leftViewRect.width - 1, y: 5), size: CGSize(width: 1, height: leftViewRect.height - 10))
         
         let inputViewRect = NSRect(origin: CGPoint(x: leftViewRect.width, y: 0),
                                    size: CGSize(width: self.view.bounds.width - leftViewRect.width - leftDividerRect.width, height: 100))
         
-        let inputDividerRect = NSRect(origin: CGPoint(x: inputViewRect.origin.x, y: inputViewRect.origin.y + inputViewRect.height - 1),
-                                      size: CGSize(width: inputViewRect.width, height: 1))
+        let inputDividerRect = NSRect(origin: CGPoint(x: inputViewRect.origin.x + 5, y: inputViewRect.origin.y + inputViewRect.height - 1),
+                                      size: CGSize(width: inputViewRect.width - 10, height: 1))
         
         let headerViewRect = NSRect(origin: CGPoint(x: leftViewRect.width, y: self.view.bounds.height - 80),
                                     size: CGSize(width: inputViewRect.width, height: 80))
         
-        let headerDividerRect = NSRect(origin: CGPoint(x: inputViewRect.origin.x, y: headerViewRect.origin.y - 1),
-                                       size: CGSize(width: headerViewRect.width, height: 1))
+        let headerDividerRect = NSRect(origin: CGPoint(x: inputViewRect.origin.x + 5, y: headerViewRect.origin.y - 1),
+                                       size: CGSize(width: headerViewRect.width - 10, height: 1))
         
         let contentViewRect = NSRect(origin: CGPoint(x: leftViewRect.width, y:inputViewRect.origin.y + inputViewRect.height + inputDividerRect.height),
                                      size: CGSize(width: inputViewRect.width, height: self.view.bounds.height - inputViewRect.height - headerViewRect.height - inputDividerRect.height - headerDividerRect.height))
@@ -101,7 +100,7 @@ class MSMainViewController: NSViewController {
     }
 }
 
-extension ViewController: NSWindowDelegate {
+extension MSMainViewController: NSWindowDelegate {
     func windowWillResize(_ sender: NSWindow, to frameSize: NSSize) -> NSSize {
         let width = max(frameSize.width, 600)
         let height = max(frameSize.height, 360)

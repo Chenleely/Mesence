@@ -9,23 +9,25 @@ import Cocoa
 
 
 class AppDelegate: NSObject, NSApplicationDelegate {
-    var mainWindow: NSWindow? // Main Window
+    lazy var mainWindow: NSWindow = {
+        let window = NSWindow(contentRect: NSMakeRect(0, 0, 1200, 720),
+                              styleMask: [.titled, .resizable, .miniaturizable, .closable, .fullSizeContentView],
+                               backing: .buffered,
+                               defer: false)
+        window.minSize = NSMakeSize(500, 300)
+        window.titleVisibility = .hidden
+        window.titlebarAppearsTransparent = true
+        window.isMovableByWindowBackground = true
+        window.backgroundColor = .white
+        window.center()
+        return window
+    }()
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-         mainWindow = NSWindow(contentRect: NSMakeRect(0, 0, 1200, 720),
-                               styleMask: [.titled, .resizable, .miniaturizable, .closable, .fullSizeContentView],
-                                backing: .buffered,
-                                defer: false)
-        mainWindow?.minSize = NSMakeSize(500, 300)
-        mainWindow?.contentViewController = MSMainViewController()
-        mainWindow?.titleVisibility = .hidden
-        mainWindow?.titlebarAppearsTransparent = true
-        mainWindow?.isMovableByWindowBackground = true
-        mainWindow?.backgroundColor = .white
-        mainWindow?.center()
-        mainWindow?.makeKeyAndOrderFront(nil)
-        MSMessageClient.shared.connect()
-        
-        
+        mainWindow.makeKeyAndOrderFront(nil)
+        MSViewControllerManager.sharedManager.setCurrentWindow(mainWindow)
+        let rootVC = MSLoginManager.shared.checkTokenValid() ? MSMainViewController() : MSLogingViewController()
+        MSViewControllerManager.sharedManager.push(rootVC)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -35,7 +37,5 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
         return true
     }
-
-
 }
 
