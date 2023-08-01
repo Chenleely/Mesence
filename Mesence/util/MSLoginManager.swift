@@ -6,20 +6,22 @@
 //
 
 import Foundation
+import Alamofire
 
 typealias RequestCompletionClosure = (Bool) -> ()
+
 class MSLoginManager: NSObject {
     static let shared: MSLoginManager = {
        MSLoginManager()
     }()
-    private static let UserInfoPathKey = "loginUserInfoPathKey"
-    private let tokenDic = [
-        "test" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJQaG9uZSI6InRlc3QiLCJOYW1lIjoidGVzdCIsImV4cCI6MTY5MDk1NDIxMiwiaXNzIjoic3Vubnlfd2VhdGhlcl9sb3VpczI5NiIsInN1YiI6InN1bm55X3dlYXRoZXIifQ.j7bxp3fLi-_N67fdWvfcTpwcwasKjiXFDMJlGHmQ7no",
-        "b"    : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJQaG9uZSI6ImIiLCJOYW1lIjoiYiIsImV4cCI6MTY5MDk3ODczMSwiaXNzIjoic3Vubnlfd2VhdGhlcl9sb3VpczI5NiIsInN1YiI6InN1bm55X3dlYXRoZXIifQ.nrmK7Y_uGVlfjSEXwkViESeLfQWd0qdnBRQr3oKwUvg"
-    ]
-    private var isLogin: Bool = false
     var userID: String = ""
     var token: String = ""
+    var sharedSession: Session?
+    private var isLogin: Bool = false
+    private let loginTag = "MSLoginManager"
+    private static let loginPath = baseURL + "/login"
+    private static let baseURL = "http://louis296.top:9010"
+    private static let UserInfoPathKey = "loginUserInfoPathKey"
     
     private override init() {
         super.init()
@@ -33,13 +35,32 @@ class MSLoginManager: NSObject {
         return isLogin
     }
     
-    public func login(userID: String, password: String, completion: RequestCompletionClosure) {
-        isLogin = true
-        self.userID = userID
-        if let token = self.tokenDic[userID] {
-            self.token = token
-            MSMessageClient.shared.configURLAfterLogin()
-            completion(true)
+    public func login(userID: String, password: String, completion: @escaping RequestCompletionClosure) {
+        do {
+            let headers = MSLoginRequest(Phone: userID, Password: password)
+            try AF.request(MSLoginManager.loginPath.asURL(),
+                           method: .post,
+                           parameters: headers,
+                           encoder: JSONParameterEncoder.default,
+                           headers: ["Accept" : "application/json"]).responseDecodable(of: MSLoginResponse.self, completionHandler: { response in
+                switch response.result {
+                case .failure(let error):
+                    print(error)
+                case .success(let res):
+                    if res.Status == "Success" {
+                        self.userID = userID
+                        self.token = res.Data.Token ?? ""
+                        self.sharedSession = Session(interceptor: MSCommonInceptor(accessToken: self.token))
+                        MSMessageClient.shared.configURLAfterLogin()
+                        completion(true)
+                    } else {
+                        MSLog.logE(tag: self.loginTag, log: res.Data.Message ?? "")
+                        completion(false)
+                    }
+                }
+            })
+        } catch(let error) {
+            MSLog.logE(tag: loginTag, log: "\(error)")
         }
     }
     

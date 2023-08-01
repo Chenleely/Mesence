@@ -84,7 +84,7 @@ class MSLogingViewController: NSViewController {
         let password = passwordInputView.stringValue
         if userID.isEmpty || password.isEmpty{ return }
         
-        MSLoginManager.shared.login(userID: userIDInputView.stringValue , password: "") { success in
+        MSLoginManager.shared.login(userID: userIDInputView.stringValue , password: passwordInputView.stringValue) { success in
             if success {
                 MSViewControllerManager.sharedManager.pop()
                 MSViewControllerManager.sharedManager.push(MSMainViewController())

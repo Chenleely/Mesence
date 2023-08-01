@@ -47,7 +47,6 @@ class MSMainViewController: NSViewController {
         super.viewDidLoad()
         self.initUI()
         self.installLayout()
-        MSMessageClient.shared.connect()
     }
     
     override var representedObject: Any? {

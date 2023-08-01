@@ -7,79 +7,191 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5A48C6F5-ECCD-4818-9A3A-D2C3FB28B0B1"
+            uuid = "F5BB789A-13A5-41B1-A308-751F1194A781"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Mesence/util/MSLoginManager.swift"
+            filePath = "../../Library/Developer/Xcode/DerivedData/Mesence-fnbbrfziddolscedbrrogybatexa/SourcePackages/checkouts/Alamofire/Source/Session.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "login(userID:password:completion:)"
+            startingLineNumber = "361"
+            endingLineNumber = "361"
+            landmarkName = "request(_:interceptor:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A1B81B5F-A3FB-48B0-899D-261F0F4817E9"
+            uuid = "9E32E7B5-F52B-4213-BDB0-B877B231E10E"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Mesence/core/im/MSMessageClient.swift"
+            filePath = "../../Library/Developer/Xcode/DerivedData/Mesence-fnbbrfziddolscedbrrogybatexa/SourcePackages/checkouts/Alamofire/Source/ParameterEncoder.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216"
-            landmarkName = "configURLAfterLogin()"
+            startingLineNumber = "195"
+            endingLineNumber = "195"
+            landmarkName = "encode(_:into:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E8BEEF96-A912-40CE-BB2F-B9DC4D7CD616"
+            uuid = "D4C6796D-06AB-42CE-A5E4-5A99974D7D2A"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Mesence/core/im/MSMessageClient.swift"
+            filePath = "../../Library/Developer/Xcode/DerivedData/Mesence-fnbbrfziddolscedbrrogybatexa/SourcePackages/checkouts/Alamofire/Source/Session.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
-            landmarkName = "handleByteMessage(_:)"
+            startingLineNumber = "363"
+            endingLineNumber = "363"
+            landmarkName = "request(_:interceptor:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "239E4EA2-A531-455D-A362-952A4D58743A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../Library/Developer/Xcode/DerivedData/Mesence-fnbbrfziddolscedbrrogybatexa/SourcePackages/checkouts/Alamofire/Source/Request.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1114"
+            endingLineNumber = "1114"
+            landmarkName = "init(id:convertible:underlyingQueue:serializationQueue:eventMonitor:interceptor:delegate:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ECB94976-3A6A-439C-BE23-03AA806A70D2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../Library/Developer/Xcode/DerivedData/Mesence-fnbbrfziddolscedbrrogybatexa/SourcePackages/checkouts/Alamofire/Source/Session.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "310"
+            endingLineNumber = "310"
+            landmarkName = "asURLRequest()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "E8BEEF96-A912-40CE-BB2F-B9DC4D7CD616 - ae5565df601e3d82"
+                  uuid = "ECB94976-3A6A-439C-BE23-03AA806A70D2 - a673825ba1a3db4a"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Mesence.MSMessageClient.handleByteMessage(Foundation.Data) -&gt; ()"
+                  symbolName = "Alamofire.Session.RequestEncodableConvertible.asURLRequest() throws -&gt; Foundation.URLRequest"
                   moduleName = "Mesence"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/luozhihua/Desktop/Mesence/Mesence/core/im/MSMessageClient.swift"
+                  urlString = "file:///Users/luozhihua/Library/Developer/Xcode/DerivedData/Mesence-fnbbrfziddolscedbrrogybatexa/SourcePackages/checkouts/Alamofire/Source/Session.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "103"
-                  endingLineNumber = "103"
-                  offsetFromSymbolStart = "876">
+                  startingLineNumber = "310"
+                  endingLineNumber = "310"
+                  offsetFromSymbolStart = "608">
                </Location>
                <Location
-                  uuid = "E8BEEF96-A912-40CE-BB2F-B9DC4D7CD616 - 7e6aa9590dbd96ff"
+                  uuid = "ECB94976-3A6A-439C-BE23-03AA806A70D2 - ca3d6156d4489d6b"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Mesence.MSMessageObserver) -&gt; () in Mesence.MSMessageClient.handleByteMessage(Foundation.Data) -&gt; ()"
+                  symbolName = "closure #1 (&#x3c4;_0_0) throws -&gt; Foundation.URLRequest in Alamofire.Session.RequestEncodableConvertible.asURLRequest() throws -&gt; Foundation.URLRequest"
                   moduleName = "Mesence"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/luozhihua/Desktop/Mesence/Mesence/core/im/MSMessageClient.swift"
+                  urlString = "file:///Users/luozhihua/Library/Developer/Xcode/DerivedData/Mesence-fnbbrfziddolscedbrrogybatexa/SourcePackages/checkouts/Alamofire/Source/Session.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "104"
-                  endingLineNumber = "104"
-                  offsetFromSymbolStart = "56">
+                  startingLineNumber = "310"
+                  endingLineNumber = "310"
+                  offsetFromSymbolStart = "212">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "18DF0D60-0FB7-4845-8573-76BC0F996376"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../Library/Developer/Xcode/DerivedData/Mesence-fnbbrfziddolscedbrrogybatexa/SourcePackages/checkouts/Alamofire/Source/ParameterEncoder.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
+            landmarkName = "encode(_:into:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "290AE50D-DFD8-4D9D-8BD6-E72B1F4AC1F6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../Library/Developer/Xcode/DerivedData/Mesence-fnbbrfziddolscedbrrogybatexa/SourcePackages/checkouts/Alamofire/Source/ParameterEncoder.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
+            landmarkName = "encode(_:into:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "08914D23-F8CA-4B71-AF66-6A120DE87145"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../Library/Developer/Xcode/DerivedData/Mesence-fnbbrfziddolscedbrrogybatexa/SourcePackages/checkouts/Alamofire/Source/ResponseSerialization.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "257"
+            endingLineNumber = "257"
+            landmarkName = "DataRequest"
+            landmarkType = "21">
+            <Locations>
+               <Location
+                  uuid = "08914D23-F8CA-4B71-AF66-6A120DE87145 - 19ffcfa9188c64c7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Alamofire.RetryResult) -&gt; () in closure #3 () -&gt; () in closure #1 () -&gt; () in Alamofire.DataRequest._response&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Alamofire.DataResponseSerializerProtocol&gt;(queue: __C.OS_dispatch_queue, responseSerializer: &#x3c4;_0_0, completionHandler: (Alamofire.DataResponse&lt;&#x3c4;_0_0.SerializedObject, Alamofire.AFError&gt;) -&gt; ()) -&gt; Self"
+                  moduleName = "Mesence"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luozhihua/Library/Developer/Xcode/DerivedData/Mesence-fnbbrfziddolscedbrrogybatexa/SourcePackages/checkouts/Alamofire/Source/ResponseSerialization.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "257"
+                  endingLineNumber = "257"
+                  offsetFromSymbolStart = "1068">
+               </Location>
+               <Location
+                  uuid = "08914D23-F8CA-4B71-AF66-6A120DE87145 - 3a84592027c4d063"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #2 (Alamofire.RetryResult) -&gt; () in closure #3 () -&gt; () in closure #1 () -&gt; () in Alamofire.DataRequest._response&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Alamofire.DataResponseSerializerProtocol&gt;(queue: __C.OS_dispatch_queue, responseSerializer: &#x3c4;_0_0, completionHandler: (Alamofire.DataResponse&lt;&#x3c4;_0_0.SerializedObject, Alamofire.AFError&gt;) -&gt; ()) -&gt; Self"
+                  moduleName = "Mesence"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luozhihua/Library/Developer/Xcode/DerivedData/Mesence-fnbbrfziddolscedbrrogybatexa/SourcePackages/checkouts/Alamofire/Source/ResponseSerialization.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "257"
+                  endingLineNumber = "257"
+                  offsetFromSymbolStart = "104">
                </Location>
             </Locations>
          </BreakpointContent>

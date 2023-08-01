@@ -47,7 +47,6 @@ class MSMainMsgContentView: NSView {
     convenience init(vm: MSMainContentVM) {
         self.init(frame: CGRectZero)
         self.vm = vm
-        self.vm?.getMsgList()
     }
     
     override init(frame frameRect: NSRect) {
@@ -92,7 +91,7 @@ extension MSMainMsgContentView: NSTableViewDelegate, NSTableViewDataSource {
             cell = MSMainMsgContentCellView()
         }
         if let contentCell = cell as? MSMainMsgContentCellView, let msg = vm?.msgList[row]{
-            contentCell.config(msg: msg, msgType: msg.data.from == "user" ? .mine : .other )
+            contentCell.config(msg: msg, msgType: msg.data.from == MSLoginManager.shared.userID ? .mine : .other )
         }
         return cell
     }
