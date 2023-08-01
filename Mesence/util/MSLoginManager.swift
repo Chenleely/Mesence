@@ -8,7 +8,7 @@
 import Foundation
 
 typealias RequestCompletionClosure = (Bool) -> ()
-class MSLoginManager {
+class MSLoginManager: NSObject {
     static let shared: MSLoginManager = {
        MSLoginManager()
     }()
@@ -16,7 +16,9 @@ class MSLoginManager {
     private var isLogin: Bool = false
     var userID: String = ""
     
-    private init() {}
+    private override init() {
+        super.init()
+    }
     
     @discardableResult
     public func checkTokenValid() -> Bool {
@@ -33,6 +35,12 @@ class MSLoginManager {
     }
     
     public func register(userID: String, password: String, completion: RequestCompletionClosure) {
+        
+    }
+}
+
+extension MSLoginManager: URLSessionDataDelegate {
+    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
         
     }
 }

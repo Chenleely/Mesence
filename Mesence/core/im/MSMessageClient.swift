@@ -60,9 +60,11 @@ class MSMessageClient: NSObject {
     }
     
     @inline(__always) private func generateCurrentTimestamp() -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "YYYY-MM-dd HH:mm:ss"
-        return formatter.string(from: Date())
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+        return dateFormatter.string(from: Date())
     }
 
     private func receiveMessage(result: Result<URLSessionWebSocketTask.Message, Error>) {

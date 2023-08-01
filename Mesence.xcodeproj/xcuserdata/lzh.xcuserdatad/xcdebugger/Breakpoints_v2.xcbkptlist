@@ -215,95 +215,47 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D1F03012-E9C3-4FA6-801D-07087E2DA712"
+            uuid = "4FCCC447-6974-4899-8BA1-5AA7A1B9DD09"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Mesence/ui/MSMainContentVM.swift"
+            filePath = "Mesence/core/im/MSMessageClient.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "sendMessage(_:)"
+            startingLineNumber = "178"
+            endingLineNumber = "178"
+            landmarkName = "sendMessage(message:withCompletion:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "D1F03012-E9C3-4FA6-801D-07087E2DA712 - ab348c06df9cee15"
+                  uuid = "4FCCC447-6974-4899-8BA1-5AA7A1B9DD09 - e48692ebef99d30c"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Mesence.MSMainContentVM.sendMessage(Swift.String) -&gt; ()"
+                  symbolName = "Mesence.MSMessageClient.sendMessage(message: Mesence.Msg, withCompletion: (Mesence.Msg, Swift.Bool) -&gt; ()) -&gt; ()"
                   moduleName = "Mesence"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lzh/Desktop/Mesence/Mesence/ui/MSMainContentVM.swift"
+                  urlString = "file:///Users/lzh/Desktop/Mesence/Mesence/core/im/MSMessageClient.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "25"
-                  endingLineNumber = "25"
-                  offsetFromSymbolStart = "324">
+                  startingLineNumber = "178"
+                  endingLineNumber = "178"
+                  offsetFromSymbolStart = "1096">
                </Location>
                <Location
-                  uuid = "D1F03012-E9C3-4FA6-801D-07087E2DA712 - 9c58dcc16f374f8b"
+                  uuid = "4FCCC447-6974-4899-8BA1-5AA7A1B9DD09 - ae75eaa4dc693765"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Mesence.Msg, Swift.Bool) -&gt; () in Mesence.MSMainContentVM.sendMessage(Swift.String) -&gt; ()"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Mesence.MSMessageClient.sendMessage(message: Mesence.Msg, withCompletion: (Mesence.Msg, Swift.Bool) -&gt; ()) -&gt; ()"
                   moduleName = "Mesence"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lzh/Desktop/Mesence/Mesence/ui/MSMainContentVM.swift"
+                  urlString = "file:///Users/lzh/Desktop/Mesence/Mesence/core/im/MSMessageClient.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "25"
-                  endingLineNumber = "25"
-                  offsetFromSymbolStart = "160">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BC4F5978-2FD7-4FFB-BA01-50B92E188B4F"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Mesence/ui/login/MSLogingViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "clickLogin()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "BC4F5978-2FD7-4FFB-BA01-50B92E188B4F - 4b6f29f8413e839e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Mesence.MSLogingViewController.clickLogin() -&gt; ()"
-                  moduleName = "Mesence"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lzh/Desktop/Mesence/Mesence/ui/login/MSLogingViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "87"
-                  endingLineNumber = "87"
-                  offsetFromSymbolStart = "332">
-               </Location>
-               <Location
-                  uuid = "BC4F5978-2FD7-4FFB-BA01-50B92E188B4F - 646cd62c86c214d0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Bool) -&gt; () in Mesence.MSLogingViewController.clickLogin() -&gt; ()"
-                  moduleName = "Mesence"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lzh/Desktop/Mesence/Mesence/ui/login/MSLogingViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "88"
-                  endingLineNumber = "88"
-                  offsetFromSymbolStart = "32">
+                  startingLineNumber = "179"
+                  endingLineNumber = "179"
+                  offsetFromSymbolStart = "240">
                </Location>
             </Locations>
          </BreakpointContent>
