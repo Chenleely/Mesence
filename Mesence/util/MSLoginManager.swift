@@ -14,6 +14,7 @@ class MSLoginManager {
     }()
     private static let UserInfoPathKey = "loginUserInfoPathKey"
     private var isLogin: Bool = false
+    var userID: String = ""
     
     private init() {}
     
@@ -22,10 +23,12 @@ class MSLoginManager {
         if let userInfo = UserDefaults.standard.value(forKey: MSLoginManager.UserInfoPathKey) {
             // check if token is valid
         }
-        return false
+        return isLogin
     }
     
     public func login(userID: String, password: String, completion: RequestCompletionClosure) {
+        isLogin = true
+        self.userID = userID
         completion(true)
     }
     

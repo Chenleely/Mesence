@@ -19,7 +19,10 @@ class MSMainContentVM {
     }
     
     func sendMessage(_ text: String) {
-        MSMessageClient.shared.sendMessage(fromUser: "luozhihua", toUser: "zhaozhiwei", dataContent: text) { [weak self] msg, success in
+        let from = MSLoginManager.shared.userID
+        let to = from == "test" ? "b b" : "test test"
+        
+        MSMessageClient.shared.sendMessage(fromUser: from , toUser: to, dataContent: text) { [weak self] msg, success in
             if success {
                 self?.msgList.append(msg)
                 NotificationCenter.default.post(Notification(name: MSMainContentVM.MSMessageListChanceNofiName))

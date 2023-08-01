@@ -212,5 +212,53 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D1F03012-E9C3-4FA6-801D-07087E2DA712"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mesence/ui/MSMainContentVM.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "sendMessage(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D1F03012-E9C3-4FA6-801D-07087E2DA712 - ab348c06df9cee15"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Mesence.MSMainContentVM.sendMessage(Swift.String) -&gt; ()"
+                  moduleName = "Mesence"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lzh/Desktop/Mesence/Mesence/ui/MSMainContentVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "324">
+               </Location>
+               <Location
+                  uuid = "D1F03012-E9C3-4FA6-801D-07087E2DA712 - 9c58dcc16f374f8b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Mesence.Msg, Swift.Bool) -&gt; () in Mesence.MSMainContentVM.sendMessage(Swift.String) -&gt; ()"
+                  moduleName = "Mesence"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lzh/Desktop/Mesence/Mesence/ui/MSMainContentVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "160">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

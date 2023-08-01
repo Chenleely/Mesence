@@ -80,7 +80,11 @@ class MSLogingViewController: NSViewController {
     }()
     
     @objc func clickLogin() {
-        MSLoginManager.shared.login(userID: "", password: "") { success in
+        let userID = userIDInputView.stringValue
+        let password = passwordInputView.stringValue
+        if userID.isEmpty || password.isEmpty{ return }
+        
+        MSLoginManager.shared.login(userID: userIDInputView.stringValue , password: "") { success in
             if success {
                 MSViewControllerManager.sharedManager.pop()
                 MSViewControllerManager.sharedManager.push(MSMainViewController())
