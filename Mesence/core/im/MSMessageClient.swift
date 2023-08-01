@@ -18,7 +18,7 @@ class MSMessageClient: NSObject {
     }()
     
     // MARK: - Private Property
-    private static let socketURL = "ws://louis296.top:9010/ws?Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJQaG9uZSI6InRlc3QiLCJOYW1lIjoidGVzdCIsImV4cCI6MTY5MDk1NDIxMiwiaXNzIjoic3Vubnlfd2VhdGhlcl9sb3VpczI5NiIsInN1YiI6InN1bm55X3dlYXRoZXIifQ.j7bxp3fLi-_N67fdWvfcTpwcwasKjiXFDMJlGHmQ7no"
+    private var socketURL = "ws://louis296.top:9010/ws?Token="
     private static let maxReconnectCount = 10
     
     private var timer: Timer?
@@ -32,7 +32,7 @@ class MSMessageClient: NSObject {
         return URLSession(configuration: .default, delegate: self, delegateQueue: nil)
     }()
     private lazy var websocket: URLSessionWebSocketTask = {
-        let socket = session.webSocketTask(with: URL(string: MSMessageClient.socketURL)!)
+        let socket = session.webSocketTask(with: URL(string: self.socketURL)!)
         socket.delegate = self
         return socket
     }()
@@ -40,7 +40,6 @@ class MSMessageClient: NSObject {
     // MARK: - Private Method
     private override init() {
         super.init()
-        self.connect()
     }
     
     private func reSendQosMessages() {
@@ -209,6 +208,13 @@ class MSMessageClient: NSObject {
     
     public func disConnect() {
         websocket.cancel()
+    }
+    
+    public func configURLAfterLogin() {
+        let token = MSLoginManager.shared.token
+        if !token.isEmpty {
+            socketURL += token
+        }
     }
 }
 
