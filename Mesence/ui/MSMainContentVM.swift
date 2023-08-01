@@ -20,7 +20,7 @@ class MSMainContentVM {
     
     func sendMessage(_ text: String) {
         let from = MSLoginManager.shared.userID
-        let to = from == "test" ? "b b" : "test test"
+        let to = from == "test" ? "b" : "test"
         
         MSMessageClient.shared.sendMessage(fromUser: from , toUser: to, dataContent: text) { [weak self] msg, success in
             if success {
