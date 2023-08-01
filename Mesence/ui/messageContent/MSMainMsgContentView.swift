@@ -62,6 +62,10 @@ class MSMainMsgContentView: NSView {
         }
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("Can't init object through this method")
     }

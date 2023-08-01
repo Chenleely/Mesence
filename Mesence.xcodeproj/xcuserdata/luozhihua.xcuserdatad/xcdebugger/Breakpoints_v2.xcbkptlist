@@ -24,7 +24,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "A1B81B5F-A3FB-48B0-899D-261F0F4817E9"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mesence/core/im/MSMessageClient.swift"
@@ -34,6 +34,102 @@
             endingLineNumber = "216"
             landmarkName = "configURLAfterLogin()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E8BEEF96-A912-40CE-BB2F-B9DC4D7CD616"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mesence/core/im/MSMessageClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "handleByteMessage(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E8BEEF96-A912-40CE-BB2F-B9DC4D7CD616 - ae5565df601e3d82"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Mesence.MSMessageClient.handleByteMessage(Foundation.Data) -&gt; ()"
+                  moduleName = "Mesence"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luozhihua/Desktop/Mesence/Mesence/core/im/MSMessageClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "876">
+               </Location>
+               <Location
+                  uuid = "E8BEEF96-A912-40CE-BB2F-B9DC4D7CD616 - 7e6aa9590dbd96ff"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Mesence.MSMessageObserver) -&gt; () in Mesence.MSMessageClient.handleByteMessage(Foundation.Data) -&gt; ()"
+                  moduleName = "Mesence"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luozhihua/Desktop/Mesence/Mesence/core/im/MSMessageClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "104"
+                  endingLineNumber = "104"
+                  offsetFromSymbolStart = "56">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B03843DE-0ED1-4444-B3B1-35484ACA74CF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mesence/core/im/MSMessageClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
+            landmarkName = "sendMessage(message:withCompletion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B03843DE-0ED1-4444-B3B1-35484ACA74CF - 5f33572ec297193c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Mesence.MSMessageClient.sendMessage(message: Mesence.Msg, withCompletion: (Mesence.Msg, Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "Mesence"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luozhihua/Desktop/Mesence/Mesence/core/im/MSMessageClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "177"
+                  endingLineNumber = "177"
+                  offsetFromSymbolStart = "1092">
+               </Location>
+               <Location
+                  uuid = "B03843DE-0ED1-4444-B3B1-35484ACA74CF - 15c02f61f167fd15"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Mesence.MSMessageClient.sendMessage(message: Mesence.Msg, withCompletion: (Mesence.Msg, Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "Mesence"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luozhihua/Desktop/Mesence/Mesence/core/im/MSMessageClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "178"
+                  endingLineNumber = "178"
+                  offsetFromSymbolStart = "240">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
