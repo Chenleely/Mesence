@@ -12,7 +12,9 @@ class MSMainContentVM {
     private let tag = "MSMainContentVM"
     var msgList: [Msg] = [Msg]()
     
-    init() {}
+    init() {
+        MSMessageClient.shared.registerObserver(self)
+    }
 
     func getMsgList() {
         NotificationCenter.default.post(Notification(name: MSMainContentVM.MSMessageListChanceNofiName))
