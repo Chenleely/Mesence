@@ -168,7 +168,7 @@ extension MSMainViewController: MSLeftFriendListViewDelegate, MSLeftFriendListVi
     }
     
     func didClickAddNewUser() {
-        var msgData = DataMessage(toUser: "test", fromUser: "b", dataContent: "add new user", sendMsgTime: MSTimeTools.generateRFC3339String(Date()))
+        var msgData = DataMessage(toUser: MSLoginManager.shared.userID == "b" ? "test" : "b", fromUser:MSLoginManager.shared.userID , dataContent: "add new user", sendMsgTime: MSTimeTools.generateRFC3339String(Date()))
         msgData.setRequestStatus(status: .waiting)
         let msg = Msg(type: .friendRequest, data: msgData)
         MSMessageClient.shared.sendMessage(message: msg) { msg, success in

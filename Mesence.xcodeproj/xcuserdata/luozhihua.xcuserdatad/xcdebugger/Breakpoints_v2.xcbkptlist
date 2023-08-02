@@ -212,5 +212,84 @@
             landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DE2BB2CB-ADDF-471E-AC54-6C1AEC75F700"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mesence/ui/MSMainViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "receiveNewFriendRequst(msg:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DE2BB2CB-ADDF-471E-AC54-6C1AEC75F700 - bdec6ace1c0428a1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Mesence.MSMainViewController.receiveNewFriendRequst(msg: Mesence.Msg) -&gt; ()"
+                  moduleName = "Mesence"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luozhihua/Desktop/Mesence/Mesence/ui/MSMainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "129"
+                  endingLineNumber = "129"
+                  offsetFromSymbolStart = "132">
+               </Location>
+               <Location
+                  uuid = "DE2BB2CB-ADDF-471E-AC54-6C1AEC75F700 - f904293421cd2021"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in Mesence.MSMainViewController.receiveNewFriendRequst(msg: Mesence.Msg) -&gt; ()"
+                  moduleName = "Mesence"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luozhihua/Desktop/Mesence/Mesence/ui/MSMainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "129"
+                  endingLineNumber = "129"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "DE2BB2CB-ADDF-471E-AC54-6C1AEC75F700 - a55ad6593ea9922a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; () in Mesence.MSMainViewController.receiveNewFriendRequst(msg: Mesence.Msg) -&gt; ()"
+                  moduleName = "Mesence"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luozhihua/Desktop/Mesence/Mesence/ui/MSMainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "129"
+                  endingLineNumber = "129"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DA8C60E5-E175-46DC-B5E0-BD11B75D575D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mesence/ui/MSMainContentVM.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "receiveFriensRequest(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
