@@ -14,11 +14,14 @@ class MSMainViewController: NSViewController {
     }()
     private lazy var headerDividerView: NSView = {
         let view = NSView()
+        view.isHidden = true
         view.setBackgroundColor(NSColor(hexString: "#EFEFEF"))
         return view
     }()
-    private lazy var leftsideView: NSView = {
-        let view = NSView()
+    private lazy var leftsideView: MSLeftFriendsListView = {
+        let view = MSLeftFriendsListView()
+        view.delegate = self
+        view.dataSource = self
         return view
     }()
     private lazy var leftsideDividerView: NSView = {
@@ -28,19 +31,22 @@ class MSMainViewController: NSViewController {
     }()
     private lazy var contentView: MSMainMsgContentView = {
         let view = MSMainMsgContentView(vm: self.vm)
+        view.isHidden = true
         return view
     }()
     private lazy var inputView: MSMainInputView = {
         let view = MSMainInputView(vm: self.vm)
+        view.isHidden = true
         return view
     }()
     private lazy var inputDividerView: NSView = {
         let view = NSView()
         view.setBackgroundColor(NSColor(hexString: "#EFEFEF"))
+        view.isHidden = true
         return view
     }()
     private lazy var vm: MSMainContentVM = {
-       return MSMainContentVM()
+       return MSMainContentVM(vc: self)
     }()
     
     override func viewDidLoad() {
@@ -100,6 +106,44 @@ class MSMainViewController: NSViewController {
         self.contentView.frame = contentViewRect
         self.headerView.frame = headerViewRect
         self.headerDividerView.frame = headerDividerRect
+        self.leftsideView.reloadData()
+    }
+    
+    // MARK: - public Functions
+    public func checkoutCurrentUser() {
+        self.inputView.isHidden = self.vm.currentUser == nil
+        self.headerView.isHidden = self.vm.currentUser == nil
+        self.contentView.isHidden = self.vm.currentUser == nil
+        self.inputDividerView.isHidden = self.vm.currentUser == nil
+    }
+    
+    public func reloadFriendsListView() {
+        self.leftsideView.reloadData()
+    }
+    
+    public func reloadMainView() {
+        self.contentView.reloadData()
+    }
+    
+    public func receiveNewFriendRequst(msg: Msg) {
+        var mutableMsg = msg
+        let message = "收到来来自 ---\(msg.data.from)--- 的好友请求，是否同意"
+        MSDialogViewController().showDialog(content: message) {
+            mutableMsg.data.setRequestStatus(status: .accepted)
+            self.vm.responseToFriendRequest(msg: mutableMsg)
+        } cancelCompletion: {
+            mutableMsg.data.setRequestStatus(status: .accepted)
+            self.vm.responseToFriendRequest(msg: mutableMsg)
+        }
+    }
+    
+    public func receiveOldFriendRequst(msg: Msg) {
+        let message = "\(msg.data.from)---\(msg.data.requestStatus == .accepted ? "拒绝了你的好友请求" : "同意了你的好友请求")"
+        MSDialogViewController().showDialog(content: message) {
+            
+        } cancelCompletion: {
+            
+        }
     }
 }
 
@@ -115,4 +159,25 @@ extension MSMainViewController: NSWindowDelegate {
     }
 }
 
+extension MSMainViewController: MSLeftFriendListViewDelegate, MSLeftFriendListViewDataSource {
+    func didClickItem(atIndex: Int) {
+        if let user = self.vm.friendsList?[safe: atIndex]?.Friend {
+            self.checkoutCurrentUser()
+            self.vm.checkoutCurrentUser(user)
+        }
+    }
+    
+    func didClickAddNewUser() {
+        var msgData = DataMessage(toUser: "test", fromUser: "b", dataContent: "add new user", sendMsgTime: MSTimeTools.generateRFC3339String(Date()))
+        msgData.setRequestStatus(status: .waiting)
+        let msg = Msg(type: .friendRequest, data: msgData)
+        MSMessageClient.shared.sendMessage(message: msg) { msg, success in
+            print("\(msg)  \(success)")
+        }
+    }
+    
+    var friendList: [FriendDataStruct]? {
+        return vm.friendsList
+    }
+}
 

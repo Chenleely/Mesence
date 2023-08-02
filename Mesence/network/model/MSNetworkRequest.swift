@@ -13,6 +13,12 @@ struct MSLoginRequest: Codable {
     var Password: String
 }
 
+// MARK: - User Info
+struct MSUserInfoRequest: Codable {
+    var Action: String = "GetUserInfo"
+    var Version: String = "20220101"
+}
+
 // MARK: - HistoryRecord
 struct MSHistoryRecordRequest: Codable {
     var Action: String = "ListMessageRecord"
@@ -22,4 +28,13 @@ struct MSHistoryRecordRequest: Codable {
     var AnotherUser: String
     var StartTime: String
     var EndTime: String
+}
+
+// MARK: - Friend Apply
+struct MSFriendApplyRequest: Codable {
+    var Action: String = "ListMessageRecord"
+    var Version: String = "20220101"
+    var Limit: Int?
+    var Offset: Int?
+    var `Type`: Int?
 }

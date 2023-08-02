@@ -8,15 +8,19 @@
 import Foundation
 
 class MSMainContentVM {
+    var msgList: [Msg] = [Msg]()
+    var vc: MSMainViewController
+    var friendsList: [FriendDataStruct]? = nil
+    var currentUser: UserInfoStruct? = nil
     static let MSMessageListChanceNofiName = Notification.Name("MSMessageListChangeNotiKey")
-    private var msgList: [Msg] = [Msg]()
     private let tag = "MSMainContentVM"
     private var currentFriend: String = ""
     
-    init() {
+    init(vc: MSMainViewController) {
+        self.vc = vc
         MSMessageClient.shared.registerObserver(self)
         MSMessageClient.shared.connect()
-
+        self.fetchFriendList()
     }
     
     // MARK: - private Methods
@@ -33,7 +37,19 @@ class MSMainContentVM {
                     let msg = Msg(type: .word, data: dataMsg)
                     self.msgList.append(msg)
                 }
-                NotificationCenter.default.post(Notification(name: MSMainContentVM.MSMessageListChanceNofiName))
+                self.vc.reloadMainView()
+            }
+        }
+    }
+    
+    private func fetchFriendList() {
+        MSCommunicationRepo.getFriendList { res, success in
+            self.friendsList = res?.Data.List ?? [FriendDataStruct]()
+            self.friendsList?.append(FriendDataStruct(FriendNoteName: "我", Friend: UserInfoStruct(Name: "我")))
+            self.vc.reloadFriendsListView()
+            if self.currentUser == nil {
+                self.currentUser = self.friendsList?.first?.Friend
+                self.vc.checkoutCurrentUser()
             }
         }
     }
@@ -55,6 +71,18 @@ class MSMainContentVM {
             MSLog.logI(tag: self?.tag ?? " ", log: "Send Message \(success)")
         }
     }
+    
+    func checkoutCurrentUser(_ user: UserInfoStruct?) {
+        self.currentUser = user
+        self.fetchHistory()
+    }
+    
+    func responseToFriendRequest(msg: Msg) {
+        MSMessageClient.shared.sendMessage(message: msg) { [weak self] msg, success in
+            MSLog.logI(tag: self?.tag ?? " ", log: "responseToFriendRequest \(success)")
+        }
+        self.fetchFriendList()
+    }
 }
 
 extension MSMainContentVM: MSMessageObserver {
@@ -72,7 +100,7 @@ extension MSMainContentVM: MSMessageObserver {
     
     func receiveMessage(_ msg: Msg) {
         self.msgList.append(msg)
-        NotificationCenter.default.post(Notification(name: MSMainContentVM.MSMessageListChanceNofiName))
+        vc.reloadMainView()
     }
     
     func receiveFriendsInline(_ msg: Msg) {
@@ -84,7 +112,16 @@ extension MSMainContentVM: MSMessageObserver {
     }
     
     func receiveFriensRequest(_ msg: Msg) {
-        
+        switch msg.data.requestStatus {
+        case .accepted:
+            self.vc.receiveOldFriendRequst(msg: msg)
+        case .refused:
+            self.vc.receiveOldFriendRequst(msg: msg)
+        case .waiting:
+            self.vc.receiveNewFriendRequst(msg: msg)
+        case .UNRECOGNIZED(_):
+            MSLog.logE(tag: tag, log: "UNRECOGNIZED")
+        }
     }
     
     func reveiceErrorMessage(error: Error?) {

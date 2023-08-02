@@ -24,6 +24,11 @@
 		34AA21782A77ADE000FE45FA /* MSLogingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AA21772A77ADE000FE45FA /* MSLogingViewController.swift */; };
 		34AA217C2A77BD0800FE45FA /* MSLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AA217B2A77BD0800FE45FA /* MSLoginManager.swift */; };
 		34AA217F2A77BDAF00FE45FA /* MSViewControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AA217E2A77BDAF00FE45FA /* MSViewControllerManager.swift */; };
+		3C1FCBF92A7A854F00169FAC /* MSLeftFriendsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1FCBF82A7A854F00169FAC /* MSLeftFriendsListView.swift */; };
+		3C1FCBFD2A7A93E400169FAC /* MSLeftFriendsListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1FCBFC2A7A93E400169FAC /* MSLeftFriendsListCellView.swift */; };
+		3C1FCC002A7A9E3E00169FAC /* MSLeftFriendListViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1FCBFF2A7A9E3E00169FAC /* MSLeftFriendListViewProtocol.swift */; };
+		3C1FCC022A7AA75700169FAC /* NSCollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1FCC012A7AA75700169FAC /* NSCollectionExtension.swift */; };
+		3C1FCC052A7AB16700169FAC /* MSDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1FCC042A7AB16700169FAC /* MSDialogViewController.swift */; };
 		3C2DC2492A7958E300276A7A /* MSNetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2DC2482A7958E300276A7A /* MSNetworkResponse.swift */; };
 		3C2DC24B2A79601600276A7A /* MSCommonInceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2DC24A2A79601600276A7A /* MSCommonInceptor.swift */; };
 		3C53182A2A793B7800AE007D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3C5318292A793B7800AE007D /* Alamofire */; };
@@ -58,6 +63,11 @@
 		34AA21772A77ADE000FE45FA /* MSLogingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSLogingViewController.swift; sourceTree = "<group>"; };
 		34AA217B2A77BD0800FE45FA /* MSLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSLoginManager.swift; sourceTree = "<group>"; };
 		34AA217E2A77BDAF00FE45FA /* MSViewControllerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSViewControllerManager.swift; sourceTree = "<group>"; };
+		3C1FCBF82A7A854F00169FAC /* MSLeftFriendsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSLeftFriendsListView.swift; sourceTree = "<group>"; };
+		3C1FCBFC2A7A93E400169FAC /* MSLeftFriendsListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSLeftFriendsListCellView.swift; sourceTree = "<group>"; };
+		3C1FCBFF2A7A9E3E00169FAC /* MSLeftFriendListViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSLeftFriendListViewProtocol.swift; sourceTree = "<group>"; };
+		3C1FCC012A7AA75700169FAC /* NSCollectionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSCollectionExtension.swift; sourceTree = "<group>"; };
+		3C1FCC042A7AB16700169FAC /* MSDialogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSDialogViewController.swift; sourceTree = "<group>"; };
 		3C2DC2482A7958E300276A7A /* MSNetworkResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSNetworkResponse.swift; sourceTree = "<group>"; };
 		3C2DC24A2A79601600276A7A /* MSCommonInceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSCommonInceptor.swift; sourceTree = "<group>"; };
 		3C5318322A79518800AE007D /* MSCommunicationRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSCommunicationRepo.swift; sourceTree = "<group>"; };
@@ -123,9 +133,10 @@
 		34208F9D2A7253BE00569988 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				3C1FCC032A7AB15600169FAC /* common */,
+				3C1FCBFE2A7A9C7C00169FAC /* protocol */,
+				3C1FCBF72A7A853500169FAC /* leftside */,
 				34AA21682A775EE900FE45FA /* messageContent */,
-				34AA21692A775EF400FE45FA /* leftside */,
-				34AA216A2A775EFD00FE45FA /* header */,
 				34AA216B2A775F0300FE45FA /* input */,
 				34AA21762A77ADCA00FE45FA /* login */,
 				34208F8A2A713A8600569988 /* MSMainViewController.swift */,
@@ -140,6 +151,7 @@
 				34208FA02A72548700569988 /* NSViewExtension.swift */,
 				34AA216E2A778AFF00FE45FA /* StringExtension.swift */,
 				34AA21702A779E5A00FE45FA /* NSColorExtension.swift */,
+				3C1FCC012A7AA75700169FAC /* NSCollectionExtension.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -151,20 +163,6 @@
 				34AA216C2A77654800FE45FA /* MSMainMsgContentCellView.swift */,
 			);
 			path = messageContent;
-			sourceTree = "<group>";
-		};
-		34AA21692A775EF400FE45FA /* leftside */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = leftside;
-			sourceTree = "<group>";
-		};
-		34AA216A2A775EFD00FE45FA /* header */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = header;
 			sourceTree = "<group>";
 		};
 		34AA216B2A775F0300FE45FA /* input */ = {
@@ -192,6 +190,31 @@
 				3C5318362A79572600AE007D /* MSTimeTools.swift */,
 			);
 			path = util;
+			sourceTree = "<group>";
+		};
+		3C1FCBF72A7A853500169FAC /* leftside */ = {
+			isa = PBXGroup;
+			children = (
+				3C1FCBF82A7A854F00169FAC /* MSLeftFriendsListView.swift */,
+				3C1FCBFC2A7A93E400169FAC /* MSLeftFriendsListCellView.swift */,
+			);
+			path = leftside;
+			sourceTree = "<group>";
+		};
+		3C1FCBFE2A7A9C7C00169FAC /* protocol */ = {
+			isa = PBXGroup;
+			children = (
+				3C1FCBFF2A7A9E3E00169FAC /* MSLeftFriendListViewProtocol.swift */,
+			);
+			path = protocol;
+			sourceTree = "<group>";
+		};
+		3C1FCC032A7AB15600169FAC /* common */ = {
+			isa = PBXGroup;
+			children = (
+				3C1FCC042A7AB16700169FAC /* MSDialogViewController.swift */,
+			);
+			path = common;
 			sourceTree = "<group>";
 		};
 		3C2DC24C2A7968EC00276A7A /* repos */ = {
@@ -357,19 +380,24 @@
 				3C5318372A79572600AE007D /* MSTimeTools.swift in Sources */,
 				34208FA82A725E3500569988 /* MSMainMsgContentView.swift in Sources */,
 				34AA217F2A77BDAF00FE45FA /* MSViewControllerManager.swift in Sources */,
+				3C1FCC002A7A9E3E00169FAC /* MSLeftFriendListViewProtocol.swift in Sources */,
 				34208F8B2A713A8600569988 /* MSMainViewController.swift in Sources */,
 				3C7927942A761F0200B53CDE /* MSMessageClient.swift in Sources */,
 				3C2DC24B2A79601600276A7A /* MSCommonInceptor.swift in Sources */,
 				34208FA12A72548700569988 /* NSViewExtension.swift in Sources */,
+				3C1FCC052A7AB16700169FAC /* MSDialogViewController.swift in Sources */,
 				34208F892A713A8600569988 /* AppDelegate.swift in Sources */,
 				3C5318352A79552600AE007D /* MSNetworkRequest.swift in Sources */,
+				3C1FCBF92A7A854F00169FAC /* MSLeftFriendsListView.swift in Sources */,
 				34AA216F2A778AFF00FE45FA /* StringExtension.swift in Sources */,
 				34AA21672A775AA800FE45FA /* MSMessageClientConfig.swift in Sources */,
+				3C1FCBFD2A7A93E400169FAC /* MSLeftFriendsListCellView.swift in Sources */,
 				34AA21782A77ADE000FE45FA /* MSLogingViewController.swift in Sources */,
 				3C7927A62A76495400B53CDE /* message.pb.swift in Sources */,
 				34208F992A7142C000569988 /* main.swift in Sources */,
 				3CB815EE2A78097400A20920 /* MSLog.swift in Sources */,
 				34AA21742A77ACDC00FE45FA /* MSMainContentVM.swift in Sources */,
+				3C1FCC022A7AA75700169FAC /* NSCollectionExtension.swift in Sources */,
 				3C2DC2492A7958E300276A7A /* MSNetworkResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

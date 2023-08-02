@@ -178,6 +178,10 @@ struct DataMessage {
   var requestStatus: RequestStatus = .accepted
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
+     
+  mutating func setRequestStatus(status: RequestStatus) {
+      self.requestStatus = status
+  }
 
   init() {}
     

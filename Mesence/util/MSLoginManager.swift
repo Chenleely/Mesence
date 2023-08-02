@@ -68,9 +68,3 @@ class MSLoginManager: NSObject {
         
     }
 }
-
-extension MSLoginManager: URLSessionDataDelegate {
-    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
-        
-    }
-}
