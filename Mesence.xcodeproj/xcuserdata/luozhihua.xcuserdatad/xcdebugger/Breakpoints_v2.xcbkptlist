@@ -215,62 +215,127 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DE2BB2CB-ADDF-471E-AC54-6C1AEC75F700"
+            uuid = "DA8C60E5-E175-46DC-B5E0-BD11B75D575D"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Mesence/ui/MSMainViewController.swift"
+            filePath = "Mesence/ui/MSMainContentVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
-            landmarkName = "receiveNewFriendRequst(msg:)"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "receiveFriensRequest(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6AC5EEB3-3D74-44E3-925E-DCDD458D715A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mesence/core/im/MSMessageClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "handleByteMessage(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DC58F46A-0D68-49B3-9C8C-14CEBD055F0D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mesence/core/im/MSMessageClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "handleByteMessage(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0883DF7A-2F9E-4111-AF19-6E4AB5C33D8E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mesence/core/im/MSMessageClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
+            landmarkName = "sendMessage(message:withCompletion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "066C576B-152F-4A0D-8F99-CFBD45B79542"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mesence/core/im/MSMessageClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
+            landmarkName = "sendMessage(message:withCompletion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B60BB906-E10B-4684-8E39-61C325EEA95F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mesence/ui/MSMainContentVM.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "sendMessage(_:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "DE2BB2CB-ADDF-471E-AC54-6C1AEC75F700 - bdec6ace1c0428a1"
+                  uuid = "B60BB906-E10B-4684-8E39-61C325EEA95F - f7a1600eba69e7cf"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Mesence.MSMainViewController.receiveNewFriendRequst(msg: Mesence.Msg) -&gt; ()"
+                  symbolName = "Mesence.MSMainContentVM.sendMessage(Swift.String) -&gt; ()"
                   moduleName = "Mesence"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/luozhihua/Desktop/Mesence/Mesence/ui/MSMainViewController.swift"
+                  urlString = "file:///Users/luozhihua/Desktop/Mesence/Mesence/ui/MSMainContentVM.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "129"
-                  endingLineNumber = "129"
-                  offsetFromSymbolStart = "132">
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "60">
                </Location>
                <Location
-                  uuid = "DE2BB2CB-ADDF-471E-AC54-6C1AEC75F700 - f904293421cd2021"
+                  uuid = "B60BB906-E10B-4684-8E39-61C325EEA95F - c0cd30c90ac24651"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in Mesence.MSMainViewController.receiveNewFriendRequst(msg: Mesence.Msg) -&gt; ()"
+                  symbolName = "closure #1 (Mesence.Msg, Swift.Bool) -&gt; () in Mesence.MSMainContentVM.sendMessage(Swift.String) -&gt; ()"
                   moduleName = "Mesence"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/luozhihua/Desktop/Mesence/Mesence/ui/MSMainViewController.swift"
+                  urlString = "file:///Users/luozhihua/Desktop/Mesence/Mesence/ui/MSMainContentVM.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "129"
-                  endingLineNumber = "129"
-                  offsetFromSymbolStart = "28">
-               </Location>
-               <Location
-                  uuid = "DE2BB2CB-ADDF-471E-AC54-6C1AEC75F700 - a55ad6593ea9922a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 () -&gt; () in Mesence.MSMainViewController.receiveNewFriendRequst(msg: Mesence.Msg) -&gt; ()"
-                  moduleName = "Mesence"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/luozhihua/Desktop/Mesence/Mesence/ui/MSMainViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "129"
-                  endingLineNumber = "129"
-                  offsetFromSymbolStart = "28">
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "160">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -278,16 +343,96 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DA8C60E5-E175-46DC-B5E0-BD11B75D575D"
+            uuid = "DBCB625B-FD31-49DE-BC6A-573DF2D957CE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mesence/ui/MSMainContentVM.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "fetchFriendList()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DBCB625B-FD31-49DE-BC6A-573DF2D957CE - 573143dda8882f26"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Mesence.MSMainContentVM.fetchFriendList() -&gt; ()"
+                  moduleName = "Mesence"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luozhihua/Desktop/Mesence/Mesence/ui/MSMainContentVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  uuid = "DBCB625B-FD31-49DE-BC6A-573DF2D957CE - f15c6676186aa242"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Mesence.MSFriendListResponse&gt;, Swift.Bool) -&gt; () in Mesence.MSMainContentVM.fetchFriendList() -&gt; ()"
+                  moduleName = "Mesence"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luozhihua/Desktop/Mesence/Mesence/ui/MSMainContentVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "72">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C4B22A79-B2E8-4DBF-87E5-9FF9903890FB"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mesence/ui/MSMainContentVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
-            landmarkName = "receiveFriensRequest(_:)"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "fetchFriendList()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7C34F445-62D3-4001-8678-0032B8CE466D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mesence/network/MSCommonInceptor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "adapt(_:for:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5C92B6E9-20E2-4197-A8B1-77A0384ED662"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mesence/ui/MSMainContentVM.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "fetchHistory()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

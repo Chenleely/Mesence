@@ -38,3 +38,9 @@ struct MSFriendApplyRequest: Codable {
     var Offset: Int?
     var `Type`: Int?
 }
+
+// MARK: - Friend List
+struct MSFriendListRequest: Codable {
+    var Action: String = "ListFriend"
+    var Version: String = "20220101"
+}

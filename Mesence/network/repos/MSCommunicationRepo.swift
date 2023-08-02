@@ -22,7 +22,7 @@ class MSCommunicationRepo {
     
     // 好友列表
     class func getFriendList(completion: @escaping (MSFriendListResponse?, Bool) -> Void) {
-        self.GET(url: requestURL) { res, success in
+        self.GET(url: requestURL, params: MSFriendListRequest()) { res, success in
             completion(res, success)
         }
     }

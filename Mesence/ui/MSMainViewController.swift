@@ -132,13 +132,13 @@ class MSMainViewController: NSViewController {
             mutableMsg.data.setRequestStatus(status: .accepted)
             self.vm.responseToFriendRequest(msg: mutableMsg)
         } cancelCompletion: {
-            mutableMsg.data.setRequestStatus(status: .accepted)
+            mutableMsg.data.setRequestStatus(status: .refused)
             self.vm.responseToFriendRequest(msg: mutableMsg)
         }
     }
     
     public func receiveOldFriendRequst(msg: Msg) {
-        let message = "\(msg.data.from)---\(msg.data.requestStatus == .accepted ? "拒绝了你的好友请求" : "同意了你的好友请求")"
+        let message = "\(msg.data.from)---\(msg.data.requestStatus == .accepted ?  "同意了你的好友请求" : "拒绝了你的好友请求")"
         MSDialogViewController().showDialog(content: message) {
             
         } cancelCompletion: {
@@ -168,12 +168,7 @@ extension MSMainViewController: MSLeftFriendListViewDelegate, MSLeftFriendListVi
     }
     
     func didClickAddNewUser() {
-        var msgData = DataMessage(toUser: MSLoginManager.shared.userID == "b" ? "test" : "b", fromUser:MSLoginManager.shared.userID , dataContent: "add new user", sendMsgTime: MSTimeTools.generateRFC3339String(Date()))
-        msgData.setRequestStatus(status: .waiting)
-        let msg = Msg(type: .friendRequest, data: msgData)
-        MSMessageClient.shared.sendMessage(message: msg) { msg, success in
-            print("\(msg)  \(success)")
-        }
+        self.vm.requestAdddNewuser(to: "test")
     }
     
     var friendList: [FriendDataStruct]? {

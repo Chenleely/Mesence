@@ -45,7 +45,7 @@ class MSMainContentVM {
     private func fetchFriendList() {
         MSCommunicationRepo.getFriendList { res, success in
             self.friendsList = res?.Data.List ?? [FriendDataStruct]()
-            self.friendsList?.append(FriendDataStruct(FriendNoteName: "我", Friend: UserInfoStruct(Name: "我")))
+            self.friendsList?.append(FriendDataStruct(FriendNoteName: "我", Friend: UserInfoStruct(Name: MSLoginManager.shared.userID)))
             self.vc.reloadFriendsListView()
             if self.currentUser == nil {
                 self.currentUser = self.friendsList?.first?.Friend
@@ -63,7 +63,7 @@ class MSMainContentVM {
     }
     
     func sendMessage(_ text: String) {
-        MSMessageClient.shared.sendMessage(fromUser: MSLoginManager.shared.userID , toUser: currentFriend, dataContent: text) { [weak self] msg, success in
+        MSMessageClient.shared.sendMessage(fromUser: MSLoginManager.shared.userID , toUser: currentUser?.Name ?? "MSLoginManager.shared.userID", dataContent: text) { [weak self] msg, success in
             if success {
                 self?.msgList.append(msg)
                 NotificationCenter.default.post(Notification(name: MSMainContentVM.MSMessageListChanceNofiName))
@@ -82,6 +82,15 @@ class MSMainContentVM {
             MSLog.logI(tag: self?.tag ?? " ", log: "responseToFriendRequest \(success)")
         }
         self.fetchFriendList()
+    }
+    
+    func requestAdddNewuser(to: String) {
+        var msgData = DataMessage(toUser: to, fromUser:MSLoginManager.shared.userID , dataContent: "add new user", sendMsgTime: MSTimeTools.generateRFC3339String(Date()))
+        msgData.setRequestStatus(status: .waiting)
+        let msg = Msg(type: .friendRequest, data: msgData)
+        MSMessageClient.shared.sendMessage(message: msg) { msg, success in
+            print("\(msg)  \(success)")
+        }
     }
 }
 

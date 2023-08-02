@@ -184,7 +184,6 @@
 		34AA21792A77BCF000FE45FA /* util */ = {
 			isa = PBXGroup;
 			children = (
-				34AA217B2A77BD0800FE45FA /* MSLoginManager.swift */,
 				34AA217E2A77BDAF00FE45FA /* MSViewControllerManager.swift */,
 				3CB815ED2A78097400A20920 /* MSLog.swift */,
 				3C5318362A79572600AE007D /* MSTimeTools.swift */,
@@ -247,6 +246,7 @@
 				3C2DC24C2A7968EC00276A7A /* repos */,
 				3C53182B2A793DA000AE007D /* model */,
 				3C2DC24A2A79601600276A7A /* MSCommonInceptor.swift */,
+				34AA217B2A77BD0800FE45FA /* MSLoginManager.swift */,
 			);
 			path = network;
 			sourceTree = "<group>";
