@@ -52,6 +52,14 @@ class MSCommunicationRepo {
     }
     
     // 回应别人发起的好友请求
+    class func responseToFriendApplyList(id: String, accept: Bool, completion: @escaping (MSFriendApplyAuthReponse?, Bool) -> Void) {
+        self.POST(url: requestURL,
+                  params: MSFriendApplyAuthRequestBody(Id: id, Type: accept ? 1 : 0),
+                  headers: MSFriendApplyAuthRequestParam(),
+                  encoder: JSONParameterEncoder.default, responseType: MSFriendApplyAuthReponse.self) { res, success in
+            completion(res, success)
+        }
+    }
     
     private class func GET<Response: Decodable, Param: Encodable>(url: String,
                                                                   params:Param? = nil,
@@ -96,14 +104,23 @@ class MSCommunicationRepo {
         }
     }
     
-    private class func POST<Response: Decodable, Param: Encodable>(url: String,
+    private class func POST<Response: Decodable, Param: Encodable, Header: Codable>(url: String,
                                                                    params:Param,
-                                                                   headers: HTTPHeaders? = nil,
+                                                                   headers: Header? = nil,
                                                                    encoder: ParameterEncoder,
                                                                    responseType: Response.Type = Response.self,
                                                                    completion: @escaping (Response?, Bool) -> Void) {
         do {
-            try MSLoginManager.shared.sharedSession?.request(url.asURL(),method: .post,parameters: params,encoder: encoder,headers: headers).responseDecodable(of: Response.self) { response in
+            var httpHeaders: HTTPHeaders? = nil
+            if let data = try? JSONEncoder().encode(headers),
+               let dict = try? JSONSerialization.jsonObject(with: data , options: []) as? [String: String] {
+               httpHeaders = HTTPHeaders(dict)
+            }
+            try MSLoginManager.shared.sharedSession?.request(url.asURL(),
+                                                             method: .post,
+                                                             parameters: params,
+                                                             encoder: encoder,
+                                                             headers: httpHeaders).responseDecodable(of: Response.self) { response in
                 switch response.result {
                 case.failure(let error):
                     completion(nil, false)

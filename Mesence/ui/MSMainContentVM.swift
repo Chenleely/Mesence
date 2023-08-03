@@ -81,7 +81,9 @@ class MSMainContentVM {
         MSMessageClient.shared.sendMessage(message: msg) { [weak self] msg, success in
             MSLog.logI(tag: self?.tag ?? " ", log: "responseToFriendRequest \(success)")
         }
-        self.fetchFriendList()
+        MSCommunicationRepo.responseToFriendApplyList(id: msg.data.from, accept: msg.data.requestStatus == .accepted) { [weak self] res, success in
+            self?.fetchFriendList()
+        }
     }
     
     func requestAdddNewuser(to: String) {

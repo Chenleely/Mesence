@@ -88,5 +88,11 @@ struct FriendApplyDataStruct: Codable {
     var RequestStatus: String?
 }
 
+// MARK: - Friend Apply Response
+struct MSFriendApplyAuthReponse: Codable {
+    var Status: String?
+    var Time: String?
+}
+
 
 
