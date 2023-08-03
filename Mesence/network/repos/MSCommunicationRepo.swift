@@ -12,6 +12,11 @@ class MSCommunicationRepo {
     private static let baseURL = "http://louis296.top:9010"
     private static let requestURL = baseURL + "/v1"
     
+    @inline(__always)
+    private class func generatePostUrl(action: String, version: String) -> String {
+        return requestURL + "?" + "Action=\(action)&Version=\(version)"
+    }
+    
     // 历史消息列表
     class func getHistory(anotherUser: String, page: Int, limit: Int, startTime: String, endTime: String, completion: @escaping (MSHistoryRecordResponse?, Bool) -> Void) {
         self.GET(url: requestURL,
@@ -53,10 +58,10 @@ class MSCommunicationRepo {
     
     // 回应别人发起的好友请求
     class func responseToFriendApplyList(id: String, accept: Bool, completion: @escaping (MSFriendApplyAuthReponse?, Bool) -> Void) {
-        self.POST(url: requestURL,
-                  params: MSFriendApplyAuthRequestBody(Id: id, Type: accept ? 1 : 0),
-                  headers: MSFriendApplyAuthRequestParam(),
-                  encoder: JSONParameterEncoder.default, responseType: MSFriendApplyAuthReponse.self) { res, success in
+        let param = MSFriendApplyAuthRequestParam()
+        self.POST(url: self.generatePostUrl(action: param.Action, version: param.Version),
+                  body: MSFriendApplyAuthRequestBody(Id: id, Type: accept ? 1 : 0),
+                  responseType: MSFriendApplyAuthReponse.self) { res, success in
             completion(res, success)
         }
     }
@@ -104,23 +109,16 @@ class MSCommunicationRepo {
         }
     }
     
-    private class func POST<Response: Decodable, Param: Encodable, Header: Codable>(url: String,
-                                                                   params:Param,
-                                                                   headers: Header? = nil,
-                                                                   encoder: ParameterEncoder,
+    private class func POST<Response: Decodable, Param: Encodable>(url: String,
+                                                                   body:Param,
                                                                    responseType: Response.Type = Response.self,
                                                                    completion: @escaping (Response?, Bool) -> Void) {
         do {
-            var httpHeaders: HTTPHeaders? = nil
-            if let data = try? JSONEncoder().encode(headers),
-               let dict = try? JSONSerialization.jsonObject(with: data , options: []) as? [String: String] {
-               httpHeaders = HTTPHeaders(dict)
-            }
             try MSLoginManager.shared.sharedSession?.request(url.asURL(),
                                                              method: .post,
-                                                             parameters: params,
-                                                             encoder: encoder,
-                                                             headers: httpHeaders).responseDecodable(of: Response.self) { response in
+                                                             parameters: body,
+                                                             encoder: JSONParameterEncoder.default,
+                                                             headers: ["Accept" : "application/json"]).responseDecodable(of: Response.self) { response in
                 switch response.result {
                 case.failure(let error):
                     completion(nil, false)
