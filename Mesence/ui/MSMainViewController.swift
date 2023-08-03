@@ -168,7 +168,7 @@ extension MSMainViewController: MSLeftFriendListViewDelegate, MSLeftFriendListVi
     }
     
     func didClickAddNewUser() {
-        self.vm.requestAdddNewuser(to: "test")
+        self.vm.requestAdddNewuser(to: MSLoginManager.shared.userID == "test" ? "b" : "test")
     }
     
     var friendList: [FriendDataStruct]? {
