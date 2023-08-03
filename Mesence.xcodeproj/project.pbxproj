@@ -184,7 +184,6 @@
 		34AA21792A77BCF000FE45FA /* util */ = {
 			isa = PBXGroup;
 			children = (
-				34AA217E2A77BDAF00FE45FA /* MSViewControllerManager.swift */,
 				3CB815ED2A78097400A20920 /* MSLog.swift */,
 				3C5318362A79572600AE007D /* MSTimeTools.swift */,
 			);
@@ -211,6 +210,7 @@
 		3C1FCC032A7AB15600169FAC /* common */ = {
 			isa = PBXGroup;
 			children = (
+				34AA217E2A77BDAF00FE45FA /* MSViewControllerManager.swift */,
 				3C1FCC042A7AB16700169FAC /* MSDialogViewController.swift */,
 			);
 			path = common;

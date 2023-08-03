@@ -51,6 +51,8 @@ class MSCommunicationRepo {
         }
     }
     
+    // 回应别人发起的好友请求
+    
     private class func GET<Response: Decodable, Param: Encodable>(url: String,
                                                                   params:Param? = nil,
                                                                   responseType: Response.Type = Response.self,
@@ -80,6 +82,28 @@ class MSCommunicationRepo {
         do {
             try MSLoginManager.shared.sharedSession?.request(url.asURL(),
                                                              method: .get).responseDecodable(of: Response.self) { response in
+                switch response.result {
+                case.failure(let error):
+                    completion(nil, false)
+                    print(error)
+                case .success(let result):
+                    completion(result, true)
+                }
+            }
+        } catch (let error) {
+            print(error)
+            completion(nil, false)
+        }
+    }
+    
+    private class func POST<Response: Decodable, Param: Encodable>(url: String,
+                                                                   params:Param,
+                                                                   headers: HTTPHeaders? = nil,
+                                                                   encoder: ParameterEncoder,
+                                                                   responseType: Response.Type = Response.self,
+                                                                   completion: @escaping (Response?, Bool) -> Void) {
+        do {
+            try MSLoginManager.shared.sharedSession?.request(url.asURL(),method: .post,parameters: params,encoder: encoder,headers: headers).responseDecodable(of: Response.self) { response in
                 switch response.result {
                 case.failure(let error):
                     completion(nil, false)

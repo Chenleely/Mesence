@@ -44,3 +44,13 @@ struct MSFriendListRequest: Codable {
     var Action: String = "ListFriend"
     var Version: String = "20220101"
 }
+
+// MARK: - Friend Apply Response
+struct MSFriendApplyAuthRequestParam: Codable {
+    var Action: String = "FinishFriendRequest"
+    var Version: String = "20220101"
+}
+struct MSFriendApplyAuthRequestBody: Codable {
+    var Id: String
+    var `Type`: Int
+}
